@@ -1,0 +1,393 @@
+<template>
+  <nav :class="{ active: sidebarState }">
+    <div class="nav-bar">
+      <i class="bx bx-menu sidebarOpen iconfont icon-ic_side" @click="sidebarOpen"></i>
+      <span class="logo navLogo"><a href="#">益华数字科技</a></span>
+
+      <div class="menu">
+        <div class="logo-toggle">
+          <span class="logo"><a href="#">益华数字科技</a></span>
+          <i ref="siderbarClose" class="bx bx-x siderbarClose" @click="siderbarClose"></i>
+        </div>
+
+        <ul class="nav-links">
+          <li>
+            <router-link :to="{ name: 'Home' }">主页</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: 'About' }">简介</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: 'Product' }">业务</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: 'Case' }">案例</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: 'ContactUs' }">联系我们</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: 'Staff' }">员工</router-link>
+          </li>
+        </ul>
+      </div>
+
+      <div class="darkLight-searchBox">
+        <div class="dark-light" :class="{ active: isActive }" @click="modeToggle">
+          <i v-if="isActive === false" class="bx moon iconfont icon-moon"></i>
+          <i v-else class="bx sun iconfont icon-sun"></i>
+        </div>
+
+        <div class="searchBox">
+          <div class="searchToggle" :class="{ active: searchActive }" @click="searchToggle">
+            <i class="bx bx-x cancel iconfont icon-cancel"></i>
+            <i class="bx bx-search search iconfont icon-fenxiang"></i>
+          </div>
+
+          <div class="search-field">
+            <input type="text" placeholder="Search..." />
+            <i class="bx bx-search iconfont icon-fenxiang"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</template>
+
+<!--<script lang="ts" setup></script>-->
+<script>
+export default {
+  name: 'HeadNav',
+  data() {
+    return {
+      isActive: false, //黑夜模式状态开关
+      searchActive: false,
+      body: null,
+      sidebarState: false, //侧边栏状态
+    }
+  },
+  mounted() {
+    this.body = document.querySelector('body')
+    let getMode = localStorage.getItem('mode')
+    if (getMode && getMode === 'dark-mode') {
+      this.body.classList.add('dark')
+    }
+    this.body.addEventListener('click', (e) => {
+      let clickedElm = e.target
+
+      if (!clickedElm.classList.contains('sidebarOpen') && !clickedElm.classList.contains('menu')) {
+        this.sidebarState = false
+      }
+    })
+  },
+  methods: {
+    modeToggle() {
+      this.isActive = !this.isActive
+      this.body.classList.toggle('dark')
+      if (!this.body.classList.contains('dark')) {
+        localStorage.setItem('mode', 'light-mode')
+      } else {
+        localStorage.setItem('mode', 'dark-mode')
+      }
+    },
+    searchToggle() {
+      this.searchActive = !this.searchActive
+    },
+    sidebarOpen() {
+      this.sidebarState = true
+    },
+    siderbarClose() {},
+  },
+}
+</script>
+<style lang="scss">
+@import '../assets/fonts/iconfont/iconfont.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.4s ease;
+}
+
+/* ===== Colours ===== */
+:root {
+  --body-color: #e4e9f7;
+  --nav-color: #4070f4;
+  //--side-nav: #010718;
+  --side-nav: #54a0ff;
+  --text-color: #fff;
+  --search-bar: #f2f2f2;
+  --search-text: #010718;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--body-color);
+}
+
+body.dark {
+  --body-color: #18191a;
+  --nav-color: #242526;
+  --side-nav: #242526;
+  --text-color: #ccc;
+  --search-bar: #242526;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  background-color: var(--nav-color);
+  z-index: 100;
+}
+
+body.dark nav {
+  border: 1px solid #393838;
+}
+
+nav .nav-bar {
+  position: relative;
+  height: 100%;
+  max-width: 1000px;
+  width: 100%;
+  background-color: var(--nav-color);
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .nav-bar .sidebarOpen {
+  color: var(--text-color);
+  font-size: 25px;
+  padding: 5px;
+  cursor: pointer;
+  display: none;
+}
+
+nav .nav-bar .logo a {
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.menu .logo-toggle {
+  display: none;
+}
+
+.nav-bar .nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar .nav-links li {
+  margin: 0 5px;
+  list-style: none;
+}
+
+.nav-links li a {
+  position: relative;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 10px;
+}
+
+.nav-links li a::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: var(--text-color);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.nav-links li:hover a::before {
+  opacity: 1;
+}
+
+.nav-bar .darkLight-searchBox {
+  display: flex;
+  align-items: center;
+}
+
+.darkLight-searchBox .dark-light,
+.darkLight-searchBox .searchToggle {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+}
+
+.dark-light i,
+.searchToggle i {
+  position: absolute;
+  color: var(--text-color);
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dark-light i.icon-Sun {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dark-light.active i.icon-Sun {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dark-light.active i.icon-moon {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.searchToggle i.icon-cancel {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.searchToggle.active i.icon-cancel {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.searchToggle.active i.icon-fenxiang {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.searchBox {
+  position: relative;
+}
+
+.searchBox .search-field {
+  position: absolute;
+  bottom: -85px;
+  right: 5px;
+  height: 50px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  background-color: var(--nav-color);
+  padding: 3px;
+  border-radius: 6px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.searchToggle.active ~ .search-field {
+  bottom: -74px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search-field::before {
+  content: '';
+  position: absolute;
+  right: 14px;
+  top: -4px;
+  height: 12px;
+  width: 12px;
+  background-color: var(--nav-color);
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.search-field input {
+  height: 100%;
+  width: 100%;
+  padding: 0 45px 0 15px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--search-text);
+  background-color: var(--search-bar);
+}
+
+body.dark .search-field input {
+  color: var(--text-color);
+}
+
+.search-field i {
+  position: absolute;
+  color: var(--nav-color);
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+body.dark .search-field i {
+  color: var(--text-color);
+}
+
+@media (max-width: 790px) {
+  nav .nav-bar .sidebarOpen {
+    display: block;
+  }
+
+  .menu {
+    position: fixed;
+    height: 100%;
+    width: 320px;
+    left: -100%;
+    top: 0;
+    padding: 20px;
+    background-color: var(--side-nav);
+    z-index: 100;
+    transition: all 0.4s ease;
+  }
+
+  nav.active .menu {
+    left: -0%;
+  }
+
+  nav.active .nav-bar .navLogo a {
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .menu .logo-toggle {
+    display: block;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-toggle .siderbarClose {
+    color: var(--text-color);
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .nav-bar .nav-links {
+    flex-direction: column;
+    padding-top: 30px;
+  }
+
+  .nav-links li a {
+    display: block;
+    margin-top: 20px;
+  }
+}
+</style>
