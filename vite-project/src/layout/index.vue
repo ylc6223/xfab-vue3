@@ -15,7 +15,6 @@ export default {
 
 <style scoped lang="scss">
 .view {
-  padding-top: 70px;
   width: 100%;
 }
 </style>

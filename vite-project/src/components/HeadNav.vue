@@ -114,7 +114,7 @@ export default {
 /* ===== Colours ===== */
 :root {
   --body-color: #e4e9f7;
-  --nav-color: #4070f4;
+  --nav-color: #3867d6;
   //--side-nav: #010718;
   --side-nav: #54a0ff;
   --text-color: #fff;
@@ -123,7 +123,7 @@ export default {
 }
 
 body {
-  height: 100vh;
+  //height: 100vh;
   background-color: var(--body-color);
 }
 
