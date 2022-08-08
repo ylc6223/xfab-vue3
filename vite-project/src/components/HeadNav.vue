@@ -115,7 +115,6 @@ export default {
 :root {
   --body-color: #e4e9f7;
   --nav-color: #3867d6;
-  //--side-nav: #010718;
   --side-nav: #54a0ff;
   --text-color: #fff;
   --search-bar: #f2f2f2;
