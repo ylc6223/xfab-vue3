@@ -1,5 +1,5 @@
 <template>
-  <head-nav />
+  <head-nav class="shadow-bottom" />
   <router-view class="view" />
 </template>
 

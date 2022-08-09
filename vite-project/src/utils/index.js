@@ -1,3 +1,4 @@
+export const isClient = typeof window !== 'undefined'
 /**
  * 防抖
  * @param {*} fn 执行函数

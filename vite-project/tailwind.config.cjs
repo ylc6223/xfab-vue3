@@ -9,6 +9,9 @@ module.exports = {
       colors: {
         'tabbar-color': '#dce3f7',
       },
+      boxShadow: {
+        'bottom': '0 0 18px rgba(0,0,0,0.2)',
+      }
     },
   },
   plugins: [],

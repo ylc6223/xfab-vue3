@@ -2,7 +2,7 @@
   <div
     id="introduction"
     class="flex w-full h-screen md:py-20 bg-fixed bg-cover bg-top bg-bottom bg-no-repeat justify-center"
-    style="background-image: url('/assets/images/pexels-photo-933054.jpeg')"
+    style="background-image: url('https://images.pexels.com/photos/933054/pexels-photo-933054.jpeg')"
   >
     <div
       class="container flex justify-center items-center md:pt-4 text-center relative mx-auto text-amber-50 md:text-5xl"
@@ -19,18 +19,21 @@
       </div>
     </div>
   </div>
-  <div class="tab-container fixed top-80 px-8 md:px-20 bg-tabbar-color">
-    <ul class="flex mx-auto justify-start max-w-screen-lg md:h-14">
-      <li
-        v-for="(tab, index) in tabs"
-        :key="tab.id"
-        class="relative md:mr-16 h-full flex justify-center items-center"
-        :class="{ 'active-tab': index === active }"
-        @click="navToPosition(index, tab.id)"
-      >
-        <a>{{ tab.tabName }}</a>
-      </li>
-    </ul>
+  <!--  tab-container占位容器 防止定位过后高度塌陷-->
+  <div class="tab-container md:h-14">
+    <div class="tabbar px-8 md:px-20 bg-tabbar-color h-full">
+      <ul class="flex mx-auto justify-start max-w-screen-lg h-full">
+        <li
+          v-for="(tab, index) in tabs"
+          :key="tab.id"
+          class="relative md:mr-16 h-full flex justify-center items-center"
+          :class="{ 'active-tab': curIndex === index }"
+          @click="navToPosition(tab.id, index)"
+        >
+          <a>{{ tab.tabName }}</a>
+        </li>
+      </ul>
+    </div>
   </div>
 
   <section id="brief" class="mb-10 h-96">
@@ -92,7 +95,23 @@
 </template>
 
 <script lang="ts">
+// 在滚动过程中计算获取元素在没有fixed定位的时候的距离顶部的距离
+function getOffset(element) {
+  const rect = element.getBoundingClientRect()
+  // 这两行代码不兼容IE (兼容IE的方法是 document.documentElement.scrollTop / scrollLeft)
+  const scrollTop = window.pageYOffset
+  const scrollLeft = window.pageXOffset
+  /*
+  相加后的结果是 初始位置 在滚动过程中他将是一个固定值
+  */
+  return {
+    top: rect.top + scrollTop,
+    left: rect.left + scrollLeft,
+  }
+}
+
 import { debounce } from '../utils/index'
+
 export default {
   data() {
     return {
@@ -100,83 +119,71 @@ export default {
         {
           tabName: '公司简介',
           id: '#brief',
-          active: false,
         },
         {
           tabName: '愿景及使命',
           id: '#vision',
-          active: false,
         },
         {
           tabName: '发展历程',
           id: '#development',
-          active: false,
         },
         {
           tabName: '业务架构',
           id: '#structure',
-          active: false,
         },
         {
           tabName: '管理团队',
           id: '#teams',
-          active: false,
         },
         {
           tabName: '企业文化',
           id: '#culture',
-          active: false,
         },
         {
           tabName: '办公地点',
           id: '#office',
-          active: false,
         },
       ],
-      active: 0,
-      timeout: null,
+      curIndex: 0,
+      offsetTops: {},
+      isFixed: false,
     }
   },
   mounted() {
-    this.init()
+    window.addEventListener('scroll', this.handleScroll)
   },
-  destroy() {
-    // 必须移除监听器，不然当该vue组件被销毁了，监听器还在就会出错
-    // window.removeEventListener('scroll', this.onScroll)
-  },
+  destroy() {},
   methods: {
-    init() {
-      const that = this
-      window.addEventListener(
-        'scroll',
-        debounce(function (e) {
-          clearTimeout(that.timeout)
-          that.timeout = setTimeout(() => {
-            that.activeTab(e)
-          })
-        }, 1000)
-      )
+    //实现吸顶和滚动导航
+    handleScroll() {
+      // this.activeTab(1)
     },
-    //  dom定位导航
-    navToPosition(index, id) {
-      //激活相应的tab标签
-      this.active = index
-      //将元素滚动到可视区域
-      document.querySelector(id).scrollIntoView(true)
+    //选择标题滚动到对应内容
+    navToPosition(id, index) {
+      this.activeTab(index)
+      document.querySelector(id).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'start',
+      })
     },
-    //  激活对应的tab标签
-    activeTab(e) {
-      const nodes = document.querySelectorAll('section')
-      for (let i = 0; i < nodes.length; i++) {
-        let node = nodes[i]
-        // 获取该元素此时相对于视口的顶部的距离，即是元素顶部距离视口屏幕上边的距离
-        let nodeY = node.getBoundingClientRect().y
-        // 当元素距离视口顶部的距离在 [0,200] 之间，设置激活该元素对应左侧的导航标题，这个数字可以按需定义
-        // 这里关联内容和导航标签，是巧妙利用了内容在元素集合中的索引序号和导航标签中的一致
-        if (nodeY <= 0) {
-          this.active = Number(i)
-          return
-        }
+    //激活对应tab
+    activeTab(index) {
+      const nodes = document.querySelectorAll('.mb-10')
+      console.log(nodes)
+      this.curIndex = index
+    },
+
+    // 计算页面的各个offsetTop
+    calcTop(recalNav) {
+      const tabbar = document.querySelector('.tabbar')
+      recalNav && (this.offsetTops.tabbar = tabbar.offsetTop)
+      let sections = this.tabs.map((item) => {
+        return item.id
+      })
+      for (let j = 0; j < sections.length; j++) {
+        this.offsetTops[sections[j]] = document.querySelector(sections[j]).offsetTop
       }
     },
   },
