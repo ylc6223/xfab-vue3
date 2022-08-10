@@ -21,95 +21,36 @@
   </div>
   <!--  tab-container占位容器 防止定位过后高度塌陷-->
   <div class="tab-container md:h-14">
-    <div class="tabbar px-8 md:px-20 bg-tabbar-color h-full">
+    <div class="tabbar px-8 md:px-20 bg-tabbar-color w-full md:h-14">
       <ul class="flex mx-auto justify-start max-w-screen-lg h-full">
         <li
           v-for="(tab, index) in tabs"
           :key="tab.id"
-          class="relative md:mr-16 h-full flex justify-center items-center"
+          class="relative md:mr-16 h-full"
           :class="{ 'active-tab': curIndex === index }"
-          @click="navToPosition(tab.id, index)"
         >
-          <a>{{ tab.tabName }}</a>
+          <a class="block h-full flex justify-center items-center" @click.prevent="activeTab(tab.id, index, $event)">{{
+            tab.tabName
+          }}</a>
         </li>
       </ul>
     </div>
+    <div class="line absolute"></div>
   </div>
 
-  <section id="brief" class="mb-10 h-96">
-    <h3>公司简介</h3>
-    <h4>Lorem ipsum.</h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet commodi, consectetur dolor est incidunt
-      iusto molestias neque quas quis, ratione voluptas. Adipisci alias dicta esse laudantium porro quam veniam.
-    </p>
-  </section>
-  <section id="vision" class="mb-10 h-96">
-    <h3>愿景及使命</h3>
-    <h4>Lorem ipsum dolor.</h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet commodi, consectetur dolor est incidunt
-      iusto molestias neque quas quis, ratione voluptas. Adipisci alias dicta esse laudantium porro quam veniam.
-    </p>
-  </section>
-  <section id="development" class="mb-10 h-96">
-    <h3>发展历程</h3>
-    <h4>Lorem ipsum dolor.</h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet commodi, consectetur dolor est incidunt
-      iusto molestias neque quas quis, ratione voluptas. Adipisci alias dicta esse laudantium porro quam veniam.
-    </p>
-  </section>
-  <section id="structure" class="mb-10 h-96">
-    <h3>业务架构</h3>
-    <h4>Lorem ipsum dolor.</h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet commodi, consectetur dolor est incidunt
-      iusto molestias neque quas quis, ratione voluptas. Adipisci alias dicta esse laudantium porro quam veniam.
-    </p>
-  </section>
-  <section id="teams" class="mb-10 h-96">
-    <h3>管理团队</h3>
-    <h4>Lorem ipsum dolor.</h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet commodi, consectetur dolor est incidunt
-      iusto molestias neque quas quis, ratione voluptas. Adipisci alias dicta esse laudantium porro quam veniam.
-    </p>
-  </section>
-  <section id="culture" class="mb-10 h-96">
-    <h3>企业文化</h3>
-    <h4>Lorem ipsum dolor.</h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet commodi, consectetur dolor est incidunt
-      iusto molestias neque quas quis, ratione voluptas. Adipisci alias dicta esse laudantium porro quam veniam.
-    </p>
-  </section>
-  <section id="office" class="mb-10 h-96">
-    <h3>办公地点</h3>
-    <h4>Lorem ipsum dolor.</h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet commodi, consectetur dolor est incidunt
-      iusto molestias neque quas quis, ratione voluptas. Adipisci alias dicta esse laudantium porro quam veniam.
-    </p>
-  </section>
+  <section id="brief" class="content h-screen mb-10 h-96"></section>
+  <section id="vision" class="content h-screen mb-10 h-96"></section>
+  <section id="development" class="content h-screen mb-10 h-96"></section>
+  <section id="structure" class="content h-screen mb-10 h-96"></section>
+  <section id="teams" class="content h-screen mb-10 h-96"></section>
+  <section id="culture" class="content h-screen mb-10 h-96"></section>
+  <section id="office" class="content h-screen mb-10 h-96"></section>
+  <div class="h-screen h-96"></div>
+  <div class="h-screen h-96"></div>
+  <div class="h-screen h-96"></div>
 </template>
 
 <script lang="ts">
-// 在滚动过程中计算获取元素在没有fixed定位的时候的距离顶部的距离
-function getOffset(element) {
-  const rect = element.getBoundingClientRect()
-  // 这两行代码不兼容IE (兼容IE的方法是 document.documentElement.scrollTop / scrollLeft)
-  const scrollTop = window.pageYOffset
-  const scrollLeft = window.pageXOffset
-  /*
-  相加后的结果是 初始位置 在滚动过程中他将是一个固定值
-  */
-  return {
-    top: rect.top + scrollTop,
-    left: rect.left + scrollLeft,
-  }
-}
-
 import { debounce } from '../utils/index'
 
 export default {
@@ -146,45 +87,62 @@ export default {
         },
       ],
       curIndex: 0,
-      offsetTops: {},
-      isFixed: false,
+      offsetTops: [],
+      links: [],
     }
   },
   mounted() {
+    const line = document.querySelector('.line')
+    const links = document.querySelectorAll('.tabbar li')
+    this.offsetTops = [...document.querySelectorAll('.content')]
     window.addEventListener('scroll', this.handleScroll)
   },
   destroy() {},
   methods: {
-    //实现吸顶和滚动导航
+    //实现吸顶
     handleScroll() {
-      // this.activeTab(1)
+      const tabbarContainer = document.querySelector('.tab-container')
+      const tabbar = document.querySelector('.tabbar')
+      // 得到页面滚动的距离
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      if (scrollTop >= tabbarContainer.offsetTop) {
+        tabbar.style.position = 'fixed'
+        tabbar.style.top = '0px'
+      } else {
+        tabbar.style.position = 'relative'
+        tabbar.style.top = '0'
+      }
     },
     //选择标题滚动到对应内容
     navToPosition(id, index) {
-      this.activeTab(index)
-      document.querySelector(id).scrollIntoView({
+      const offsetTop = document.querySelector(id).offsetTop
+      window.scrollTo({
+        top: !index ? offsetTop : offsetTop - 100,
         behavior: 'smooth',
-        block: 'start',
-        inline: 'start',
       })
     },
     //激活对应tab
-    activeTab(index) {
-      const nodes = document.querySelectorAll('.mb-10')
-      console.log(nodes)
+    activeTab(id, index, e) {
       this.curIndex = index
+      this.navToPosition(id, index)
+      this.setLinePosition(e.target)
     },
-
-    // 计算页面的各个offsetTop
-    calcTop(recalNav) {
-      const tabbar = document.querySelector('.tabbar')
-      recalNav && (this.offsetTops.tabbar = tabbar.offsetTop)
-      let sections = this.tabs.map((item) => {
-        return item.id
-      })
-      for (let j = 0; j < sections.length; j++) {
-        this.offsetTops[sections[j]] = document.querySelector(sections[j]).offsetTop
-      }
+    setLinePosition(element) {
+      const colors = ['deepskyblue', 'orange', 'firebrick', 'gold', 'magenta', 'black', 'darkblue'] //随机分配颜色
+      const width = element.getBoundingClientRect().width
+      const height = element.getBoundingClientRect().height
+      const left = element.getBoundingClientRect().left
+      const tabbarContainer = document.querySelector('.tab-container')
+      const top = element.scrollHeight + tabbarContainer.clientHeight
+      const color = colors[Math.floor(Math.random() * colors.length)]
+      //下划线的位置跟随a标签
+      const line = document.querySelector('.line')
+      line.style.width = `${width}px`
+      line.style.height = `${height}px`
+      line.style.left = `${left}px`
+      line.style.top = `${top}px`
+      line.style.borderColor = color
+      line.style.transform = 'none'
     },
   },
 }
@@ -193,6 +151,15 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/variables.scss';
 @import '../styles/mixins.scss';
+
+@keyframes expand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 
 .play-btn {
   width: 94px;
@@ -271,14 +238,35 @@ a.play-btn:hover {
   text-decoration: none;
 }
 
-.tab-container ul li.active-tab a:after {
-  content: ' ';
-  height: 2px;
-  width: 100%;
-  background: #0052d9;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0px;
+//.tab-container ul li.active-tab a:after {
+//  content: ' ';
+//  height: 2px;
+//  width: 100%;
+//  background: #0052d9;
+//  position: absolute;
+//  left: 0;
+//  right: 0;
+//  bottom: 0px;
+//  //animation: expand 0.2s;
+//}
+
+.content:nth-of-type(odd) {
+  background-color: #95a5a6;
+}
+
+.content:nth-of-type(even) {
+  background-color: #1abc9c;
+}
+
+//点击相应tab下划线进行跟随
+.line {
+  border-bottom: 2px solid transparent;
+  //z-index: -1;
+  z-index: 1;
+  transform: translateX(-60px);
+  transition: all 0.35s ease-in-out;
+}
+
+.line {
 }
 </style>

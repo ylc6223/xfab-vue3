@@ -135,7 +135,7 @@ body.dark {
 }
 
 nav {
-  position: fixed;
+  //position: fixed;
   top: 0;
   left: 0;
   height: 70px;
