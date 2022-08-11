@@ -20,22 +20,22 @@
     </div>
   </div>
   <!--  tab-container占位容器 防止定位过后高度塌陷-->
-  <div class="tab-container md:h-14">
-    <div class="tabbar px-8 md:px-20 bg-tabbar-color w-full md:h-14">
-      <ul class="flex mx-auto justify-start max-w-screen-lg h-full">
+  <div class="tab-container relative md:h-14">
+    <div class="tabbar px-8 md:px-20 bg-tabbar-color w-full h-7 md:h-14">
+      <ul class="absolute mx-auto left-0 right-0 h-full whitespace-nowrap overflow-x-auto">
         <li
           v-for="(tab, index) in tabs"
           :key="tab.id"
-          class="relative md:mr-16 h-full"
+          class="relative inline-block mr-8 md:mr-16 h-full"
           :class="{ 'active-tab': curIndex === index }"
         >
           <a class="block h-full flex justify-center items-center" @click.prevent="activeTab(tab.id, index, $event)">{{
             tab.tabName
           }}</a>
         </li>
+        <div class="line absolute"></div>
       </ul>
     </div>
-    <div class="line absolute"></div>
   </div>
 
   <section id="brief" class="content h-screen mb-10 h-96"></section>
@@ -132,8 +132,8 @@ export default {
       const width = element.getBoundingClientRect().width
       const height = element.getBoundingClientRect().height
       const left = element.getBoundingClientRect().left
-      const tabbarContainer = document.querySelector('.tab-container')
-      const top = element.scrollHeight + tabbarContainer.clientHeight
+      const top = element.parentNode.offsetTop
+      console.log(element.parentNode)
       const color = colors[Math.floor(Math.random() * colors.length)]
       //下划线的位置跟随a标签
       const line = document.querySelector('.line')
@@ -141,7 +141,7 @@ export default {
       line.style.height = `${height}px`
       line.style.left = `${left}px`
       line.style.top = `${top}px`
-      line.style.borderColor = color
+      line.style.borderColor = '#0052d9'
       line.style.transform = 'none'
     },
   },
@@ -265,8 +265,5 @@ a.play-btn:hover {
   z-index: 1;
   transform: translateX(-60px);
   transition: all 0.35s ease-in-out;
-}
-
-.line {
 }
 </style>

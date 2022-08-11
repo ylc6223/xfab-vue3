@@ -1,6 +1,7 @@
 <template>
   <head-nav class="shadow-bottom" />
-  <router-view class="view" />
+  <router-view />
+  <div class="h-screen h-96"></div>
 </template>
 
 <script>
