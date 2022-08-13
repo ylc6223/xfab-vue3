@@ -2,11 +2,15 @@
   <nav :class="{ active: sidebarState }">
     <div class="nav-bar">
       <i class="bx bx-menu sidebarOpen iconfont icon-ic_side" @click="sidebarOpen"></i>
-      <span class="logo navLogo"><a href="#">益华数字科技</a></span>
+      <span class="logo navLogo"
+        ><a href="#">{{ logo }}</a></span
+      >
 
       <div class="menu">
         <div class="logo-toggle">
-          <span class="logo"><a href="#">益华数字科技</a></span>
+          <span class="logo"
+            ><a href="#">{{ logo }}</a></span
+          >
           <i ref="siderbarClose" class="bx bx-x siderbarClose" @click="siderbarClose"></i>
         </div>
 
@@ -58,6 +62,13 @@
 <script>
 export default {
   name: 'HeadNav',
+  props: {
+    logo: {
+      type: String,
+      required: true,
+      default: 'Logo',
+    },
+  },
   data() {
     return {
       isActive: false, //黑夜模式状态开关

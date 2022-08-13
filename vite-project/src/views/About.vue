@@ -10,7 +10,7 @@
       <div class="row">
         <div>
           <h1 class="md:mb-4">创造价值，成就客户</h1>
-          <h2 class="md:mb-16">业界领先的牙科机智能水表制造商</h2>
+          <h2 class="md:mb-16">业界领先的牙科机与智能水表制造商</h2>
           <a
             href="https://www.youtube.com/watch?v=jDDaplaOz7Q"
             class="w-94 h-94 block relative rounded-full mx-auto play-btn"

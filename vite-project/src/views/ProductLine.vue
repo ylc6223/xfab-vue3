@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen h-96"></div>
+  <div class="slider h-screen h-96"></div>
   <scroll-nav :menu="navs" relative-name="html">
     <section id="brief" class="content h-screen mb-10 h-screen"></section>
     <section id="vision" class="content h-screen mb-10 h-screen"></section>

@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll-nav relative">
+  <div class="scroll-nav">
     <div class="nav-bar-wrap relative bg-tabbar-color w-full h-7 md:h-14">
       <ul
         class="nav-bar absolute w-screen md:w-auto md:left-1/2 md:-translate-x-2/4 mx-auto h-full whitespace-nowrap overflow-x-auto"
@@ -8,7 +8,7 @@
         <li
           v-for="(item, index) in navMenu"
           :key="item.value"
-          class="relative inline-block px-8 md:px-0 md:mr-16 h-full"
+          class="relative cursor-pointer inline-block px-8 md:px-0 md:mr-16 h-full"
           :class="{ active: item.checked }"
           :style="item.checked ? isActive : notActive"
         >
@@ -239,7 +239,7 @@ export default {
     //1.计算实际的导航栏固定后的高度
     this.calcFixedHeightPx()
     //2.判断浏览器环境是否支持sticky,如支持则启用
-    this.canUseSticky = this.useSticky && this.validateSticky()
+    // this.canUseSticky = this.useSticky && this.validateSticky()
     //3.重新调整尺寸
     this.hanldeResize()
     //4.获取滚动容器 当前props传入的是html也就是window
@@ -299,14 +299,12 @@ export default {
     handleScroll() {
       //top=滚动容器中被卷去的高度
       const top = this.scrollContainer.scrollTop
-      console.log('滚动条距离', top)
       // 这是用来判断目前滚动在于哪个导航上的值，对滚动容器scrollTop做了偏差值处理
       const fixedBaseTop = top + this.scrollDeviation //滚动容器scrollTop+偏差值
-      console.log(fixedBaseTop)
       const menuLength = this.navMenu.length
       if (this.needFixed && !this.canUseSticky) {
-        // 这是控制导航栏吸顶 - 吸顶 s>=c-h
-        if (top + this.extraFixed >= this.offsetTops.navBar) {
+        // 开启吸顶且当前浏览器不支持sticky 条件是s>=c-h
+        if (top + this.extraFixed - 56 >= this.offsetTops.navBar) {
           this.navBarFixed = true
         }
         // 这是控制导航栏吸顶 - 取消吸顶
@@ -341,7 +339,7 @@ export default {
     calcTop(recalNav) {
       this.$nextTick(() => {
         //重新计算导航栏的位置
-        recalNav && (this.offsetTops.navBar = document.querySelector('.scroll-nav .nav-bar-wrap').offsetTop)
+        recalNav && (this.offsetTops.navBar = document.querySelector('.scroll-nav').offsetTop)
         this.navMenu.forEach((item, index) => {
           //重新计算默认插槽内元素的offsetTop
           this.offsetTops[`content${index}`] =
@@ -382,7 +380,7 @@ export default {
       return eleStyle.position
     },
     /**
-     * 检查浏览器是否有支持的sticky值，没有返回false，有就添加sticky相关css，实现固定
+     * 检查浏览器是否有支持的sticky值，没有返回false，有就使用sticky实现固定
      */
     validateSticky() {
       const supportStickyValue = this.isSupportSticky()
