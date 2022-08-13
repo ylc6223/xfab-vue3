@@ -239,7 +239,7 @@ export default {
     //1.计算实际的导航栏固定后的高度
     this.calcFixedHeightPx()
     //2.判断浏览器环境是否支持sticky,如支持则启用
-    // this.canUseSticky = this.useSticky && this.validateSticky()
+    this.canUseSticky = this.useSticky && this.validateSticky()
     //3.重新调整尺寸
     this.hanldeResize()
     //4.获取滚动容器 当前props传入的是html也就是window

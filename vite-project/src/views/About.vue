@@ -60,6 +60,7 @@ export default {
         {
           tabName: '公司简介',
           id: '#brief',
+          checked: true,
         },
         {
           tabName: '愿景及使命',
