@@ -1,9 +1,19 @@
 <template>
   <div class="scroll-nav">
-    <div class="nav-bar-wrap relative bg-tabbar-color w-full h-7 md:h-14">
+    <div
+      class="nav-bar-wrap relative bg-tabbar-color w-full h-7 md:h-14"
+      :style="{
+        position: navBarFixed ? 'fixed' : 'relative',
+        top: navBarFixed ? navTop : 0,
+        right: navBarFixed ? navRight : 0,
+        left: navBarFixed ? navLeft : 0,
+        bottom: navBarFixed ? navBottom : 0,
+        width: navBarFixed ? navFixedWidth : navWidth,
+        height: navBarFixed ? navFixedHeight : '100%',
+      }"
+    >
       <ul
         class="nav-bar absolute w-screen md:w-auto md:left-1/2 md:-translate-x-2/4 mx-auto h-full whitespace-nowrap overflow-x-auto"
-        :class="{ fixed: navBarFixed }"
       >
         <li
           v-for="(item, index) in navMenu"
@@ -237,9 +247,9 @@ export default {
   },
   mounted() {
     //1.计算实际的导航栏固定后的高度
-    this.calcFixedHeightPx()
+    // this.calcFixedHeightPx()
     //2.判断浏览器环境是否支持sticky,如支持则启用
-    this.canUseSticky = this.useSticky && this.validateSticky()
+    // this.canUseSticky = this.useSticky && this.validateSticky()
     //3.重新调整尺寸
     this.hanldeResize()
     //4.获取滚动容器 当前props传入的是html也就是window
@@ -254,7 +264,7 @@ export default {
     window.removeEventListener('resize', this.hanldeResize)
   },
   methods: {
-    //对组件传入的值做类型转换保持程序的健壮性
+    //将数值转换成像素单位字符串
     createValue(value) {
       return typeof value === 'number' ? `${value}px` : value
     },
@@ -304,7 +314,8 @@ export default {
       const menuLength = this.navMenu.length
       if (this.needFixed && !this.canUseSticky) {
         // 开启吸顶且当前浏览器不支持sticky 条件是s>=c-h
-        if (top + this.extraFixed - 56 >= this.offsetTops.navBar) {
+        if (top + this.extraFixed >= this.offsetTops.navBar) {
+          console.log('触发了')
           this.navBarFixed = true
         }
         // 这是控制导航栏吸顶 - 取消吸顶
@@ -339,11 +350,13 @@ export default {
     calcTop(recalNav) {
       this.$nextTick(() => {
         //重新计算导航栏的位置
-        recalNav && (this.offsetTops.navBar = document.querySelector('.scroll-nav').offsetTop)
+        recalNav && (this.offsetTops.navBar = document.querySelector('.scroll-nav .nav-bar-wrap').offsetTop)
+        console.log('navBar sticky offsetTop', this.offsetTops.navBar)
         this.navMenu.forEach((item, index) => {
           //重新计算默认插槽内元素的offsetTop
           this.offsetTops[`content${index}`] =
             this.$slots.default()[index].el.offsetTop || this.$slots.default[index].elm.offsetTop
+          console.log(this.offsetTops[`content${index}`])
         })
       })
     },
