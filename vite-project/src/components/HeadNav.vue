@@ -134,7 +134,8 @@ export default {
 
 body {
   //height: 100vh;
-  background-color: var(--body-color);
+  //background-color: var(--body-color);
+  background-color: #fff;
 }
 
 body.dark {
@@ -363,7 +364,7 @@ body.dark .search-field i {
     top: 0;
     padding: 20px;
     background-color: var(--side-nav);
-    z-index: 100;
+    z-index: 101;
     transition: all 0.4s ease;
   }
 

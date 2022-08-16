@@ -1,10 +1,11 @@
 <template>
-  <div ref="navbar" class="nav-bar-fill">
+  <div ref="navbar" class="nav-bar-fill relative border-b-stone-100 border-b md:h-14">
     <div
       class="nav-bar-wrap relative bg-tabbar-color w-full h-7 md:h-14"
       :style="{
         position: navBarFixed ? 'fixed' : 'relative',
         top: top + 'px',
+        zIndex: 100,
       }"
     >
       <ul
@@ -178,6 +179,7 @@ export default {
     window.addEventListener('scroll', this.handleScroll)
     //默认激活第一项
     this.setLinePosition()
+    window.addEventListener('resize', this.handleResize)
   },
   methods: {
     handleScroll() {
@@ -210,6 +212,7 @@ export default {
       }
       this.curIndex = 0
     },
+    handleResize() {},
     //获取当前元素的offsetTop
     getOffsetTop(obj) {
       let offsetTop = 0
@@ -283,7 +286,7 @@ export default {
     validateSticky() {
       const supportStickyValue = this.isSupportSticky()
       if (supportStickyValue) {
-        const navBarBox = document.querySelector('.nav-bar-fill')
+        const navBarBox = document.querySelector('.nav-bar-fill .nav-bar-wrap')
         navBarBox.style.position = supportStickyValue
         navBarBox.style.top = this.navStickyTop
         navBarBox.style.left = this.navStickyLeft

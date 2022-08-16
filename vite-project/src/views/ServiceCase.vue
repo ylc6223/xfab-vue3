@@ -3,7 +3,7 @@
   <sticky-nav :menu="navs" :content-offset-tops="offsetTops"></sticky-nav>
   <div ref="contents" class="contents">
     <section id="brief" class="content h-screen mb-10 h-screen"></section>
-    <section id="vision" class="content h-screen mb-10 h-screen"></section>
+    <section id="mission" class="content h-screen mb-10 h-screen"></section>
     <section id="development" class="content h-screen mb-10 h-screen"></section>
     <section id="structure" class="content h-screen mb-10 h-screen"></section>
     <section id="teams" class="content h-screen mb-10 h-screen"></section>
@@ -30,7 +30,7 @@ export default {
         },
         {
           label: '愿景及使命',
-          id: '#vision',
+          id: '#mission',
         },
         {
           label: '发展历程',

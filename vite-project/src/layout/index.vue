@@ -1,15 +1,17 @@
 <template>
   <head-nav class="shadow-bottom" logo="Logo" />
   <router-view />
-  <div class="footer h-screen h-96"></div>
+  <ft />
 </template>
 
 <script>
 import HeadNav from '@/components/HeadNav.vue'
+import _Footer from '../components/_Footer.vue'
 export default {
   name: 'Index',
   components: {
     HeadNav,
+    ft: _Footer,
   },
 }
 </script>

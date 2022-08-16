@@ -19,132 +19,120 @@
       </div>
     </div>
   </div>
-  <!--  tab-container占位容器 防止定位过后高度塌陷-->
-  <div class="tab-container relative md:h-14">
-    <div class="tabbar px-8 md:px-20 bg-tabbar-color w-full h-7 md:h-14">
-      <ul class="absolute mx-auto left-0 right-0 h-full whitespace-nowrap overflow-x-auto">
-        <li
-          v-for="(tab, index) in tabs"
-          :key="tab.id"
-          class="relative inline-block mr-8 md:mr-16 h-full"
-          :class="{ 'active-tab': curIndex === index }"
-        >
-          <a class="block h-full flex justify-center items-center" @click.prevent="activeTab(tab.id, index, $event)">{{
-            tab.tabName
-          }}</a>
-        </li>
-        <div class="line absolute"></div>
-      </ul>
-    </div>
+  <sticky-nav :menu="navs" :content-offset-tops="offsetTops"></sticky-nav>
+  <div ref="contents" class="contents">
+    <section id="brief" class="relative content">
+      <div class="py-24">
+        <div class="max-w-screen-xl mx-auto">
+          <div class="caption">
+            <h3 class="text-4xl">公司简介</h3>
+          </div>
+          <div class="text-box">
+            <h4 class="text-xl my-4">X是一家国内领先的牙科机与智能水表制造商，用创新的产品和服务推动x的进步</h4>
+            <p class="desc text-base my-4 text-left leading-6">
+              <br />x成立于2017年，公司位于中国广州。公司一直秉承科技向善的宗旨。我们的产品服务全国客户逾百家，助力他们与亲友联系，畅享便捷的出行、支付和娱乐生活。<br /><br />x发行多款风靡全球的电子游戏及其他优质数字内容，为全球用户带来丰富的互动娱乐体验。<br /><br />x还提供云计算、广告、金融科技等一系列企业服务，支持合作伙伴实现数字化转型，促进业务发展。<br /><br />x2004
+              年于香港联合交易所上市。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="mission" class="relative content">
+      <div>
+        <div class="max-w-screen-xl bg-slate-50 mx-auto">
+          <div class="pc mt-24 relative px-16 py-24 flex h-80 justify-between">
+            <div class="mess l-mess">
+              <p class="text-3xl">愿景及使命</p>
+            </div>
+            <div class="mess r-mess">
+              <p class="text-3xl">用户为本,科技向善</p>
+              <p class="desc">
+                一切以用户价值为依归，将社会责任融入产品及服务之中；<br />推动科技创新与文化传承，助力各行各业升级，促进社会的可持续发展。
+              </p>
+            </div>
+          </div>
+          <div class="mobile"></div>
+        </div>
+      </div>
+    </section>
+    <section id="development" class="relative content">
+      <div class="history-item py-24">
+        <div class="history-header relative h-96 bg-cover text-white bg-gradient-to-r from-cyan-500 to-blue-500">
+          <h3 class="text-4xl text-center pt-9 md:pt-36">发展历程</h3>
+          <progress-bar />
+        </div>
+        <div class="history-button"></div>
+        <div class="history-content"></div>
+      </div>
+    </section>
+    <section id="structure" class="relative content">
+      <h3 class="text-4xl text-center">业务架构</h3>
+      <div class="h-screen bg-amber-50"></div>
+    </section>
+    <section id="teams" class="relative content">
+      <h3 class="text-4xl text-center">管理团队</h3>
+      <div class="h-screen bg-amber-50"></div>
+    </section>
+    <section id="culture" class="relative content">
+      <h3 class="text-4xl text-center">企业文化</h3>
+      <div class="h-screen bg-amber-50"></div>
+    </section>
+    <section id="office" class="relative content">
+      <h3 class="text-4xl text-center">办公地点</h3>
+      <div class="h-screen bg-amber-50"></div>
+    </section>
   </div>
-
-  <section id="brief" class="content h-screen mb-10 h-96"></section>
-  <section id="vision" class="content h-screen mb-10 h-96"></section>
-  <section id="development" class="content h-screen mb-10 h-96"></section>
-  <section id="structure" class="content h-screen mb-10 h-96"></section>
-  <section id="teams" class="content h-screen mb-10 h-96"></section>
-  <section id="culture" class="content h-screen mb-10 h-96"></section>
-  <section id="office" class="content h-screen mb-10 h-96"></section>
-  <div class="h-screen h-96"></div>
-  <div class="h-screen h-96"></div>
-  <div class="h-screen h-96"></div>
 </template>
 
 <script lang="ts">
 import { debounce } from '../utils/index'
-
+import StickyNav from '../components/StickyNav.vue'
+import ProgressBar from '../components/ProgressBar.vue'
 export default {
+  components: {
+    StickyNav,
+    ProgressBar,
+  },
   data() {
     return {
-      tabs: [
+      navs: [
         {
-          tabName: '公司简介',
+          label: '公司简介',
           id: '#brief',
           checked: true,
         },
         {
-          tabName: '愿景及使命',
-          id: '#vision',
+          label: '愿景及使命',
+          id: '#mission',
         },
         {
-          tabName: '发展历程',
+          label: '发展历程',
           id: '#development',
         },
         {
-          tabName: '业务架构',
+          label: '业务架构',
           id: '#structure',
         },
         {
-          tabName: '管理团队',
+          label: '管理团队',
           id: '#teams',
         },
         {
-          tabName: '企业文化',
+          label: '企业文化',
           id: '#culture',
         },
         {
-          tabName: '办公地点',
+          label: '办公地点',
           id: '#office',
         },
       ],
-      curIndex: 0,
-      offsetTops: [],
-      links: [],
+      offsetTops: {},
     }
   },
   mounted() {
-    const line = document.querySelector('.line')
-    const links = document.querySelectorAll('.tabbar li')
-    this.offsetTops = [...document.querySelectorAll('.content')]
-    window.addEventListener('scroll', this.handleScroll)
-  },
-  destroy() {},
-  methods: {
-    //实现吸顶
-    handleScroll() {
-      const tabbarContainer = document.querySelector('.tab-container')
-      const tabbar = document.querySelector('.tabbar')
-      // 得到页面滚动的距离
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      if (scrollTop >= tabbarContainer.offsetTop) {
-        tabbar.style.position = 'fixed'
-        tabbar.style.top = '0px'
-      } else {
-        tabbar.style.position = 'relative'
-        tabbar.style.top = '0'
-      }
-    },
-    //选择标题滚动到对应内容
-    navToPosition(id, index) {
-      const offsetTop = document.querySelector(id).offsetTop
-      window.scrollTo({
-        top: !index ? offsetTop : offsetTop - 100,
-        behavior: 'smooth',
-      })
-    },
-    //激活对应tab
-    activeTab(id, index, e) {
-      this.curIndex = index
-      this.navToPosition(id, index)
-      this.setLinePosition(e.target)
-    },
-    setLinePosition(element) {
-      const colors = ['deepskyblue', 'orange', 'firebrick', 'gold', 'magenta', 'black', 'darkblue'] //随机分配颜色
-      const width = element.getBoundingClientRect().width
-      const height = element.getBoundingClientRect().height
-      const left = element.getBoundingClientRect().left
-      const top = element.parentNode.offsetTop
-      console.log(element.parentNode)
-      const color = colors[Math.floor(Math.random() * colors.length)]
-      //下划线的位置跟随a标签
-      const line = document.querySelector('.line')
-      line.style.width = `${width}px`
-      line.style.height = `${height}px`
-      line.style.left = `${left}px`
-      line.style.top = `${top}px`
-      line.style.borderColor = '#0052d9'
-      line.style.transform = 'none'
-    },
+    this.navs.forEach((item, index) => {
+      this.offsetTops[`content${index}`] = this.$refs['contents'].children[index].offsetTop
+    })
   },
 }
 </script>
@@ -152,15 +140,6 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/variables.scss';
 @import '../styles/mixins.scss';
-
-@keyframes expand {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
 
 .play-btn {
   width: 94px;
@@ -251,20 +230,11 @@ a.play-btn:hover {
 //  //animation: expand 0.2s;
 //}
 
-.content:nth-of-type(odd) {
-  background-color: #95a5a6;
-}
-
-.content:nth-of-type(even) {
-  background-color: #1abc9c;
-}
-
-//点击相应tab下划线进行跟随
-.line {
-  border-bottom: 2px solid transparent;
-  //z-index: -1;
-  z-index: 1;
-  transform: translateX(-60px);
-  transition: all 0.35s ease-in-out;
-}
+//.content:nth-of-type(odd) {
+//  background-color: #95a5a6;
+//}
+//
+//.content:nth-of-type(even) {
+//  background-color: #1abc9c;
+//}
 </style>

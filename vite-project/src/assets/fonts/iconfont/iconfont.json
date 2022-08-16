@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "34927",
+      "name": "weibo",
+      "font_class": "weibo",
+      "unicode": "e6c4",
+      "unicode_decimal": 59076
+    },
+    {
+      "icon_id": "77156",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
       "icon_id": "21937750",
       "name": "ic_side",
       "font_class": "ic_side",
