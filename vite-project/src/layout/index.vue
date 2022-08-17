@@ -1,5 +1,5 @@
 <template>
-  <head-nav class="shadow-bottom" logo="Logo" />
+  <head-nav class="shadow-bottom" logo="益华数字科技" />
   <router-view />
   <ft />
 </template>

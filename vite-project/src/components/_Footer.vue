@@ -1,123 +1,69 @@
 <template>
-  <div class="wrap_footer w-full">
-    <div class="footer_con max-w-screen-xl mx-auto">
-      <div class="focus_us w-full border-b pt-4 mb-5 md:pt-8 md:mb-9 h-6 md:h-14 box-content">
-        <h3 class="tit md:mr-9 md:mb-8 text-3xl float-left">关注我们</h3>
-        <ul class="focus_list flex float-left">
-          <li class="md:w-7 md:mr-6">
-            <a href="#" class="wechat-btn block w-full">
-              <i class="iconfont icon-weixin text-4xl"></i>
-              <img
-                v-show="false"
-                class="wechat-code"
-                src="https://www.tencent.com/img/index/wechat-code.jpg"
-                alt="img"
-              />
-            </a>
-          </li>
-          <li class="md:w-7 md:mr-6">
-            <a href="https://weibo.com/tencent" class="block w-full" target="_blank">
-              <i class="iconfont icon-weibo text-4xl"></i>
-            </a>
-          </li>
-          <li class="md:w-7 md:mr-6">
-            <a href="https://twitter.com/TencentGlobal" class="block w-full" target="_blank">
-              <i class="icon i_twitter text-4xl"></i>
-            </a>
-          </li>
-          <li class="md:w-7 md:mr-6">
-            <a href="https://www.linkedin.com/company/tencent/" class="block w-full" target="_blank">
-              <i class="icon i_in text-4xl"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="join_us float-left">
-        <!-- 添加类名 sublist_show 显示子菜单 -->
-        <div class="tit_area">
-          <h3 class="tit">加入我们</h3>
-          <i class="icon icon_arrow"></i>
+  <div class="w-full h-[auto] md:h-120 bg-light-gray">
+    <div class="flex flex-col w-full h-[auto] xl:h-120 md:w-[96%] lg:w-[96%] xl:w-[1200px] mx-auto">
+      <div class="text-xl">
+        <div
+          class="flex h-[1.375rem] md:h-[3.4375rem] box-content pt-[41px] md:pt-[33px] mb-[18px] md:mb-[40px] md:border-b"
+        >
+          <h3 class="ml-8 mr-[21px] md:mr-8 md:ml-0 text-base md:text-2xl">关注我们</h3>
+          <ul class="flex">
+            <li class="iconfont icon-weibo text-3xl inline-block mr-[23px] md:mr-[28px]">
+              <a href="https://weibo.com/tencent" class="block w-full" target="_blank" />
+            </li>
+            <li class="iconfont icon-weixin text-3xl inline-block mr-[23px] md:mr-[28px]">
+              <a href="https://weibo.com/tencent" class="block w-full" target="_blank" />
+            </li>
+          </ul>
         </div>
-        <ul class="join_list">
-          <li>
-            <a target="_blank" href="https://careers.tencent.com/">社会招聘</a>
-          </li>
-          <li>
-            <a target="_blank" href="https://join.qq.com/">校园招聘</a>
-          </li>
-        </ul>
       </div>
-
-      <div class="contact_us float-left">
-        <div class="tit_area">
-          <h3 class="tit">联系我们</h3>
-          <i class="icon icon_arrow"></i>
+      <div class="flex flex-col lg:flex-row text-start">
+        <div class="w-full lg:w-1/6">
+          <div>
+            <h3 class="text-base md:text-2xl ml-8 md:ml-0 mr-[21px] md:mr-8 mb-4 lg:mb-8">加入我们</h3>
+            <ul class="hidden lg:block">
+              <li><a href="#" class="block mb-4">社会招聘</a></li>
+            </ul>
+          </div>
         </div>
-        <ul class="contact_list">
-          <li>
-            <a target="_blank" href="https://www.tencent.com/zh-cn/customer-service.html">客户服务</a>
-          </li>
-          <li>
-            <a target="_blank" href="https://www.tencent.com/zh-cn/partnership.html">合作洽谈</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="legal_info float-left">
-        <div class="tit_area">
-          <h3 class="tit">法律信息</h3>
-          <i class="icon icon_arrow"></i>
+        <div class="w-full lg:w-1/6">
+          <div>
+            <h3 class="text-base md:text-2xl ml-8 md:ml-0 mr-[21px] md:mr-8 mb-4 lg:mb-8">联系我们</h3>
+            <ul class="hidden lg:block">
+              <li><a href="#" class="block mb-4">客户服务</a></li>
+              <li><a href="#" class="block mb-4">合作洽谈</a></li>
+            </ul>
+          </div>
         </div>
-        <ul class="legal_list">
-          <li>
-            <a target="_blank" href="https://www.tencent.com/zh-cn/service-agreement.html">服务协议</a>
-          </li>
-          <li>
-            <a target="_blank" href="https://www.tencent.com/zh-cn/privacy-policy.html">隐私政策</a>
-          </li>
-          <li>
-            <a target="_blank" href="https://ipr.tencent.com/">知识产权</a>
-          </li>
-        </ul>
+        <div class="w-full lg:w-1/6">
+          <div>
+            <h3 class="text-base md:text-2xl ml-8 md:ml-0 mr-[21px] md:mr-8 mb-4 lg:mb-8">法律信息</h3>
+            <ul class="hidden lg:block">
+              <li><a href="#" class="block mb-4">服务协议</a></li>
+              <li><a href="#" class="block mb-4">隐私政策</a></li>
+              <li><a href="#" class="block mb-4">知识产权</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="logo md:w-3/6">
+          <img class="hidden md:block" src="@/assets/images/brand.png" alt="" />
+        </div>
       </div>
-
-      <div class="logo_tencent">
-        <img src="/img/index/tencent_logo.png" alt="xfab" />
-      </div>
-
-      <div class="footer_area">
-        <ul class="links">
-          <li>
-            <a target="_blank" href="https://www.tencent.com/zh-cn/statement.html">法律声明</a>
-          </li>
-          <li>
-            <a target="_blank" href="https://www.tencent.com/zh-cn/integrity-policy.html">阳光准则</a>
-          </li>
-          <li>
-            <a target="_blank" href="https://www.tencent.com/zh-cn/sitemap.html">网站地图</a>
-          </li>
-          <li class="num">
-            <a href="http://beian.miit.gov.cn/">粤网文【2017】6138-1456号</a>
-          </li>
-          <li class="num">
-            <a href="http://beian.miit.gov.cn/">粤B2-20090059</a>
-          </li>
-          <li class="num">
-            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502008569"
-              >粤公网安备 44030502008569号</a
-            >
-          </li>
+      <div class="mt-6 ml-8 md:mx-0 pb-[29px] md:pb-0">
+        <ul class="links flex text-[12px] md:text-base">
+          <li class="hidden lg:block mr-[20px]"><a href="#">法律声明</a></li>
+          <li class="hidden lg:block mr-[20px]"><a href="#">阳光准则</a></li>
+          <li class="hidden lg:block mr-[20px]"><a href="#">网站地图</a></li>
+          <li class="hidden md:block mr-[20px]"><a href="#">粤网文【2017】232-14232号</a></li>
+          <li class="hidden md:block mr-[20px]"><a href="#">粤公网安备 4402323232号</a></li>
         </ul>
-        <p class="copyright">
-          <a href="http://beian.miit.gov.cn/" class="flag_num">粤网文【2017】6138-1456号<span>粤B2-20090059</span></a
-          ><a class="flag_num" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502008569"
-            >粤公网安备 44030502008569号</a
-          >Copyright © 1998 - 2022 Tencent. All Rights Reserved. <br class="flag_m" />xfab 版权所有
+        <p class="copyright text-[12px] md:text-base text-start mt-[12px]">
+          <a href="http://beian.miit.gov.cn/" class="block md:hidden"
+            >粤网文【2017】6438-1444号<span>粤B2-2444449</span></a
+          ><a class="block md:hidden" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502008569"
+            >粤公网安备 44444444444号</a
+          >Copyright © 1998 - 2022 XFAB. All Rights Reserved. <br class="md:hidden" />XFAB 版权所有
         </p>
       </div>
-
-      <a class="ten_totop ten_totop--float back_to_top ten_totop--float--show"></a>
     </div>
   </div>
 </template>

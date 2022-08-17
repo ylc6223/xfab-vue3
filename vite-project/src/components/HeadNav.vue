@@ -2,9 +2,10 @@
   <nav :class="{ active: sidebarState }">
     <div class="nav-bar">
       <i class="bx bx-menu sidebarOpen iconfont icon-ic_side" @click="sidebarOpen"></i>
-      <span class="logo navLogo"
-        ><a href="#">{{ logo }}</a></span
-      >
+      <span class="logo navLogo w-auto">
+        <img src="../assets/logo.svg" class="hidden md:inline-block w-10 inline-block mr-4" alt="益华数字" />
+        <a class="hidden md:inline-block align-middle" href="#">{{ logo }}</a>
+      </span>
 
       <div class="menu">
         <div class="logo-toggle">

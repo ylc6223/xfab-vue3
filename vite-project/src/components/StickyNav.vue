@@ -1,7 +1,7 @@
 <template>
   <div ref="navbar" class="nav-bar-fill relative border-b-stone-100 border-b md:h-14">
     <div
-      class="nav-bar-wrap relative bg-tabbar-color w-full h-7 md:h-14"
+      class="nav-bar-wrap relative bg-light-gray w-full h-7 md:h-14"
       :style="{
         position: navBarFixed ? 'fixed' : 'relative',
         top: top + 'px',
