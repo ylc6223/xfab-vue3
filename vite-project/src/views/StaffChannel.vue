@@ -1,24 +1,30 @@
 <template>
-  <div class="h-[300px] md:h-[700px]">
-    <div class="flex flex-col md:flex-row justify-center items-center w-full h-full mx-auto md:w-3/4">
-      <div class="w-[80%] md:w-2/5 shadow rounded-xl">
-        <div class="rounded-md shadow">
-          <a
-            href="#"
-            class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+  <div class="md:h-[700px]">
+    <div class="flex flex-col md:flex-row justify-around items-center w-full h-full px-8 md:px-0 mx-auto md:w-4/5">
+      <div
+        class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 my-8 md:my-0 md:mr-8 lg:mr-0 hover:scale-105 hover:shadow-xl"
+      >
+        <img src="https://i.imgur.com/5dmBrx6.jpg" alt="plant" class="h-auto w-full" />
+        <div class="p-5">
+          <p class="text-medium mb-5 text-gray-700"></p>
+          <button
+            class="w-full rounded-md bg-indigo-600 py-2 text-indigo-100 hover:bg-indigo-500 hover:shadow-md duration-75"
           >
-            Get started
-          </a>
+            牙科机业务
+          </button>
         </div>
       </div>
-      <div class="w-[80%] md:w-2/5 shadow rounded-xl">
-        <div class="mt-3 sm:mt-0">
-          <a
-            href="#"
-            class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
+      <div
+        class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 my-8 md:my-0 hover:scale-105 hover:shadow-xl"
+      >
+        <img src="https://i.imgur.com/5dmBrx6.jpg" alt="plant" class="h-auto w-full" />
+        <div class="p-5">
+          <p class="text-medium mb-5 text-gray-700"></p>
+          <button
+            class="w-full rounded-md bg-indigo-600 py-2 text-indigo-100 hover:bg-indigo-500 hover:shadow-md duration-75"
           >
-            Live demo
-          </a>
+            水表业务
+          </button>
         </div>
       </div>
     </div>
