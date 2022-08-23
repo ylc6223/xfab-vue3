@@ -7,6 +7,7 @@
 <script>
 import HeadNav from '@/components/HeadNav.vue'
 import _Footer from '../components/_Footer.vue'
+
 export default {
   name: 'Index',
   components: {
