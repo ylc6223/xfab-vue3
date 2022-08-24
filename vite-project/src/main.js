@@ -5,6 +5,7 @@ import 'swiper/css'
 // SwiperClass.use([/* swiper modules... */])
 import './style.css'
 import './index.css'
+import './assets/fonts/iconfont/iconfont.css'
 import App from './App.vue'
 import router from './router'
 

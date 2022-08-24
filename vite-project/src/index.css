@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.nav-btn {
+    @apply flex items-center justify-center my-0 mx-[5px] h-[40px] w-[40px];
+}
+
+.search-field {
+    @apply absolute bottom-[-85px] right-[5px] h-[50px] w-[300px] flex items-center bg-blue-600 p-[3px] rounded-md shadow-[0_5px_5px_rgba(0,0,0,0.1)];
+}
+.search-field input{
+    @apply h-full w-full pt-0 pr-[45px] pb-0 pl-[15px] outline-none border-none rounded text-sm font-normal text-[#010718] bg-[#f2f2f2];
+}

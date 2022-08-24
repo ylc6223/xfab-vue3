@@ -1,12 +1,14 @@
 <template>
   <nav :class="{ active: sidebarState }">
     <div class="nav-bar">
+      <!--   移动端手机下logo   -->
       <i class="bx bx-menu sidebarOpen iconfont icon-ic_side" @click="sidebarOpen"></i>
+      <!--   PC下logo   -->
       <span class="logo navLogo w-auto">
         <img src="../assets/logo.svg" class="hidden md:inline-block w-10 inline-block mr-4" alt="益华数字" />
         <a class="hidden md:inline-block align-middle" href="#">{{ logo }}</a>
       </span>
-
+      <!--   菜单   -->
       <div class="menu">
         <div class="logo-toggle">
           <span class="logo"
@@ -80,6 +82,7 @@ export default {
   },
   mounted() {
     this.body = document.querySelector('body')
+    this.body.classList.add('text-slate-500', 'dark:text-slate-400', 'bg-white', 'dark:bg-slate-900')
     let getMode = localStorage.getItem('mode')
     if (getMode && getMode === 'dark-mode') {
       this.body.classList.add('dark')

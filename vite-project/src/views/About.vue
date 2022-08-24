@@ -24,7 +24,7 @@
     <section id="brief" class="relative content">
       <div class="py-24">
         <div class="max-w-screen-xl mx-auto">
-          <div class="caption">
+          <div>
             <h3 class="text-4xl">公司简介</h3>
           </div>
           <div class="text-box">
