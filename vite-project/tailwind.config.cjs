@@ -8,7 +8,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "light-gray": "#fbfbfb"
+        "light-gray": "#fbfbfb",
+        "body-color": "var(--body-color)",
+        "nav-color": "var(--nav-color)",
+        "side-bar": "var(--side-nav)",
+        "text-color": "var(--text-color)",
+        "search-bar": "var(--search-bar)",
+        "search-text": "var(--search-text)"
       },
       boxShadow: {
         "bottom": "0 0 18px rgba(0,0,0,0.2)"

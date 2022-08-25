@@ -1,6 +1,6 @@
 <template>
   <div class="main-container bg-light-gray">
-    <div class="slide">
+    <div class="slide h-screen">
       <swiper
         v-if="false"
         class="swiper"
@@ -32,7 +32,7 @@
         <li
           v-for="advantage in advantages"
           :key="advantage.label"
-          class="hover:scale-105 bg-white md:mr-[30px] mb-[30px] w-[328px] dark:bg-slate-800 rounded-lg py-[35px] px-[40px] ring-1 ring-slate-900/5 shadow-xl"
+          class="md:hover:scale-105 bg-white md:mr-[30px] mb-[30px] w-[328px] dark:bg-slate-800 rounded-lg py-[35px] px-[40px] ring-1 ring-slate-900/5 shadow-xl"
         >
           <div class="flex items-center">
             <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg mr-[15px]">

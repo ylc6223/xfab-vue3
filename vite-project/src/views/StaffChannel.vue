@@ -2,7 +2,7 @@
   <div class="md:h-[700px]">
     <div class="flex flex-col md:flex-row justify-around items-center w-full h-full px-8 md:px-0 mx-auto md:w-4/5">
       <div
-        class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 my-8 md:my-0 md:mr-8 lg:mr-0 hover:scale-105 hover:shadow-xl"
+        class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 my-8 md:my-0 md:mr-8 lg:mr-0 md:hover:scale-105 hover:shadow-xl"
       >
         <img src="https://i.imgur.com/5dmBrx6.jpg" alt="plant" class="h-auto w-full" />
         <div class="p-5">
@@ -15,7 +15,7 @@
         </div>
       </div>
       <div
-        class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 my-8 md:my-0 hover:scale-105 hover:shadow-xl"
+        class="max-w-sm overflow-hidden rounded-xl bg-white shadow-md duration-200 my-8 md:my-0 md:hover:scale-105 hover:shadow-xl"
       >
         <img src="https://i.imgur.com/5dmBrx6.jpg" alt="plant" class="h-auto w-full" />
         <div class="p-5">

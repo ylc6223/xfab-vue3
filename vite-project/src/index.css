@@ -1,13 +1,83 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.nav-btn {
+@layer base {
+    :root {
+        --body-color: #e4e9f7;
+        --nav-color: #3867d6;
+        --side-nav: #54a0ff;
+        --text-color: #fff;
+        --search-bar: #f2f2f2;
+        --search-text: #010718;
+    }
+
+    body.dark {
+        --body-color: #18191a;
+        --nav-color: #242526;
+        --side-nav: #242526;
+        --text-color: #ccc;
+        --search-bar: #242526;
+    }
+
+}
+.dark-light, .searchToggle {
     @apply flex items-center justify-center my-0 mx-[5px] h-[40px] w-[40px];
 }
 
-.search-field {
-    @apply absolute bottom-[-85px] right-[5px] h-[50px] w-[300px] flex items-center bg-blue-600 p-[3px] rounded-md shadow-[0_5px_5px_rgba(0,0,0,0.1)];
+.dark-light i, .searchToggle i {
+    @apply absolute text-white text-xl cursor-pointer transition-all duration-300 ease-in-out;
 }
-.search-field input{
-    @apply h-full w-full pt-0 pr-[45px] pb-0 pl-[15px] outline-none border-none rounded text-sm font-normal text-[#010718] bg-[#f2f2f2];
+
+.dark-light i.icon-moon {
+    @apply opacity-0 pointer-events-none;
+}
+
+.dark-light.active i.icon-moon {
+    @apply opacity-100 pointer-events-auto;
+}
+
+.dark-light.active i.icon-sun {
+    @apply opacity-0 pointer-events-none;
+}
+
+.search-field {
+    @apply absolute bottom-[-85px] right-[5px] h-[50px] w-[300px] flex items-center bg-blue-600 dark:bg-[#242526]  p-[3px] rounded-md shadow-[0_5px_5px_rgba(0,0,0,0.1)] opacity-0 z-20;
+}
+
+.search-field::before {
+    @apply content-[''] absolute right-[14px] top-[-4px] h-[12px] w-[12px] bg-blue-600 dark:bg-[#242526] -rotate-45 z-[-1];
+}
+
+.search-field input {
+    @apply h-full w-full pt-0 pr-[45px] pb-0 pl-[15px] outline-none border-none rounded text-sm font-normal text-[#010718] dark:text-white bg-[#f2f2f2] dark:bg-[#242526];
+}
+
+.search-field i {
+    @apply absolute text-blue-500 dark:text-white right-[15px] text-2xl font-bold cursor-pointer;
+}
+
+.searchToggle.active ~ .search-field {
+    @apply bottom-[-74px] opacity-100 pointer-events-auto;
+}
+
+.searchToggle.active i.icon-fenxiang {
+    @apply opacity-0 pointer-events-none;
+}
+
+.searchToggle i.icon-cancel {
+    @apply opacity-0 pointer-events-none;
+}
+
+.searchToggle.active i.icon-cancel {
+    @apply opacity-100 pointer-events-auto;
+}
+
+.sidebarTrigger {
+    @apply text-2xl p-[5px] cursor-pointer;
+}
+nav.active .menu {
+    @apply translate-x-0;
+}
+.menu {
+    @apply fixed md:static h-screen md:h-auto w-[320px] md:w-auto -translate-x-full md:translate-x-0 top-0 p-5 md:p-0 bg-side-bar md:bg-transparent z-[101] transition duration-500;
 }
