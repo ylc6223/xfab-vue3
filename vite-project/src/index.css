@@ -9,6 +9,7 @@
         --text-color: #fff;
         --search-bar: #f2f2f2;
         --search-text: #010718;
+        --caption-color: #2E58A6;
     }
 
     body.dark {
@@ -75,9 +76,20 @@
 .sidebarTrigger {
     @apply text-2xl p-[5px] cursor-pointer;
 }
+
 nav.active .menu {
     @apply translate-x-0;
 }
+
 .menu {
     @apply fixed md:static h-screen md:h-auto w-[320px] md:w-auto -translate-x-full md:translate-x-0 top-0 p-5 md:p-0 bg-side-bar md:bg-transparent z-[101] transition duration-500;
+}
+
+.backdrop {
+    @apply bg-[#2a2a2ab0] z-50 absolute w-full h-full top-0 left-0 opacity-50;
+}
+
+.caption {
+    /*@apply text-caption-color text-4xl;*/
+    @apply text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight text-center;
 }

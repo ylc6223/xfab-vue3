@@ -14,7 +14,8 @@ module.exports = {
         "side-bar": "var(--side-nav)",
         "text-color": "var(--text-color)",
         "search-bar": "var(--search-bar)",
-        "search-text": "var(--search-text)"
+        "search-text": "var(--search-text)",
+        "caption-color": "var(--caption-color)"
       },
       boxShadow: {
         "bottom": "0 0 18px rgba(0,0,0,0.2)"

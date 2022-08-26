@@ -1,5 +1,5 @@
 <template>
-  <nav class="w-full transition-all text-2xl bg-nav-color text-white" :class="{ active: sidebarState }">
+  <nav class="w-full relative z-30 transition-all text-2xl bg-nav-color text-white" :class="{ active: sidebarState }">
     <div class="nav-bar flex items-center justify-between max-w-screen-xl mx-auto h-[60px]">
       <!--   移动端开关   -->
       <i class="sidebarTrigger block md:hidden iconfont icon-ic_side" @click="sidebarOpen"></i>
@@ -61,7 +61,7 @@
             <i class="iconfont icon-cancel"></i>
             <i class="iconfont icon-fenxiang"></i>
           </div>
-          <div class="search-field">
+          <div class="hidden" :class="{ 'search-field ': searchActive }">
             <input type="text" placeholder="Search..." />
             <i class="iconfont icon-fenxiang"></i>
           </div>
