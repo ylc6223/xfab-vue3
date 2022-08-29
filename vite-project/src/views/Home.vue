@@ -1,176 +1,132 @@
 <template>
-  <div>
-    <div class="slide relative h-screen">
-      <swiper class="swiper" :modules="modules" navigation>
-        <swiper-slide class="slide">
-          <div class="backdrop"></div>
-          <img src="@/assets/images/people-in-couch-1024248.jpg" alt=""
-        /></swiper-slide>
-        <swiper-slide class="slide">
-          <div class="backdrop"></div>
-          <img src="@/assets/images/people-in-couch-1024248.jpg" alt=""
-        /></swiper-slide>
-        <swiper-slide class="slide">
-          <div class="backdrop"></div>
-          <img src="@/assets/images/people-in-couch-1024248.jpg" alt=""
-        /></swiper-slide>
-        <swiper-slide class="slide">
-          <div class="backdrop"></div>
-          <img src="@/assets/images/people-in-couch-1024248.jpg" alt=""
-        /></swiper-slide>
-        <swiper-slide class="slide">
-          <div class="backdrop"></div>
-          <img src="@/assets/images/people-in-couch-1024248.jpg" alt=""
-        /></swiper-slide>
-        <swiper-slide class="slide">
-          <div class="backdrop"></div>
-          <img src="@/assets/images/people-in-couch-1024248.jpg" alt=""
-        /></swiper-slide>
-        <swiper-slide class="slide">
-          <div class="backdrop"></div>
-          <img src="@/assets/images/people-in-couch-1024248.jpg" alt=""
-        /></swiper-slide>
-        <swiper-slide class="slide">
-          <div class="backdrop"></div>
-          <img src="@/assets/images/people-in-couch-1024248.jpg" alt=""
-        /></swiper-slide>
-      </swiper>
-    </div>
-    <section class="max-w-screen-xl mx-auto md:pt-[145px]">
-      <h2 class="md:mb-[10px] caption">为什么选择我们</h2>
-      <p class="max-w-7xl mx-auto py-6 px-4 sm:px-6">
-        经验丰富、敬职敬业、勇于开拓进取的专业员工团队 强大的资源整合能力 一体化的综合服务能力
-      </p>
-      <p class="max-w-7xl mx-auto py-6 px-4 sm:px-6">
-        经验丰富、敬职敬业、勇于开拓进取的专业员工团队 强大的资源整合能力
-        一体化的综合服务能力经验丰富、敬职敬业、勇于开拓进取的专业员工团队 强大的资源整合能力 一体化的综合服务能力
-      </p>
-      <ul class="flex md:mt-[45px] flex-wrap justify-center">
-        <li
-          v-for="advantage in advantages"
-          :key="advantage.label"
-          class="md:hover:scale-105 bg-white md:mr-[30px] mb-[30px] w-[328px] dark:bg-slate-800 rounded-lg py-[35px] px-[40px] ring-1 ring-slate-900/5 shadow-xl"
-        >
-          <div class="flex items-center">
-            <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg mr-[15px]">
-              <svg
-                class="h-6 w-6 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                ></path>
-              </svg>
-            </span>
-            <h3 class="text-slate-900 dark:text-white text-base font-medium tracking-tight">
-              {{ advantage.label }}
-            </h3>
+  <section id="hero" class="w-full py-[60px] h-[80vh] bg-nav-color">
+    <div class="container pt-16 px-3 mx-auto">
+      <div class="flex">
+        <div class="flex-1 flex flex-col justify-center">
+          <h1 class="text-5xl text-white mb-2.5">业界领先的牙科机综合服务解决方案</h1>
+          <h2 class="text-2xl text-gray-400 mb-12">我们是一个拥有丰富行业经验与高质量交付能力的团队</h2>
+          <div class="flex">
+            <button class="px-7 py-2.5 font-semibold text-xl bg-cyan-500 text-white rounded-full shadow-sm">
+              开始了解
+            </button>
+            <a class="text-white text-xl ml-5 flex items-center" href="https://www.youtube.com/watch?v=jDDaplaOz7Q"
+              ><i class="iconfont icon-playcircle text-3xl"></i><span>观看视频</span></a
+            >
           </div>
-          <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-            {{ advantage.text }}
-          </p>
-        </li>
-      </ul>
-    </section>
-    <section class="max-w-screen-xl mx-auto md:pt-[145px]">
-      <h2 class="md:mb-[10px] caption">我们提供最专业的服务</h2>
-      <p class="max-w-7xl mx-auto py-6 px-4 sm:px-6">
-        在各领域中, 我司经多年探索, 我们累计了雄厚的技术背景和丰富的客户经验, 拥有
-        一批优秀的技术人员、及高素质的销售团队,
-      </p>
-      <p class="max-w-7xl mx-auto py-6 px-4 sm:px-6">
-        并配备经验丰富的售后工程师, 为客户 提供及时高效的售后服务和技术支持。
-      </p>
-      <div class="max-w-[1000px] mx-auto px-8 md:px-0">
-        <video src="https://cms-resource.mastergo.com/01_UI_MPEG_4_404c112d64.mp4"></video>
+        </div>
+        <div class="flex-1">
+          <img src="@/assets/images/hero-img.png" class="w-4/5 mx-auto" alt="" />
+        </div>
       </div>
-    </section>
-    <section class="max-w-screen-xl mx-auto md:pt-[145px]">
-      <h2 class="md:mb-[10px] caption">服务案例</h2>
-      <p class="max-w-7xl mx-auto py-6 px-4 sm:px-6">
-        我们始终与最新的行业领先技术保持同步, 满足不断变化的市场需求和专业 挑战。
-      </p>
-      <p class="max-w-7xl mx-auto py-6 px-4 sm:px-6">期待与各位新老客尸共同引领行业的发展!</p>
-      <div></div>
-    </section>
-    <section class="max-w-screen-xl mx-auto md:pt-[145px]">
-      <h2 class="md:mb-[10px] caption">管理团队介绍</h2>
+    </div>
+  </section>
+  <!-- 关于我们 -->
+  <section id="about">
+    <div class="container mx-auto py-20">
+      <div class="section-title mb-20">
+        <h2>关于我们</h2>
+      </div>
+      <div class="px-16 mb-8">
+        <p>益华数字科技有限公司成立于2017年，公司位于中国广州。</p>
+        <p>
+          我们是国内领先的牙科设备综合服务商，用创新的产品和服务推动牙科事业的进步
+          <br />
+          我们一直秉承科技向善的宗旨。我们的产品服务全国客户逾百家，助力牙科医疗事业的发展，畅享便捷的工作和生产。
+          <br />
+          公司推出多款服务全国的牙科设备，为客户带来优秀的使用体验。
+          <br />
+          益华数字还提供XXXX等一系列服务，支持合作伙伴实现数字化转型，促进业务发展。
+        </p>
+      </div>
+      <div class="text-center text-white">
+        <button class="mx-auto rounded-lg shadow px-4 py-2 bg-sky-500 transition hover:-translate-y-2.5">
+          了解更多
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- 选择我们 -->
+  <section id="select_our">
+    <div class="container mx-auto py-20">
+      <div class="section-title mb-20">
+        <h2>为什么选择我们</h2>
+      </div>
+      <p class="px-16 mb-16">经验丰富、快速响应、勇于开拓进取的专业团队 强大的资源整合能力 一体化的综合服务能力</p>
+      <div class="px-16 mb-8">
+        <ul class="grid grid-cols-3 gap-10">
+          <li
+            v-for="advantage in advantages"
+            :key="advantage.label"
+            class="transition md:hover:scale-105 bg-white dark:bg-slate-800 rounded-lg py-[35px] px-[40px] ring-1 ring-slate-900/5 shadow-sm border"
+          >
+            <div class="flex items-center">
+              <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg mr-[15px]">
+                <svg
+                  class="h-6 w-6 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                  ></path>
+                </svg>
+              </span>
+              <h3 class="text-slate-900 dark:text-white text-base font-medium tracking-tight">
+                {{ advantage.label }}
+              </h3>
+            </div>
+            <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+              {{ advantage.text }}
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!--产品展示-->
+  <section id="product">
+    <div class="container mx-auto py-20">
+      <div class="section-title mb-20">
+        <h2>我们的产品</h2>
+      </div>
+      <div>
+        <ul class="flex mx-auto justify-center">
+          <li class="rounded-xl px-4 py-2 bg-nav-color text-white">全部</li>
+          <li class="rounded-xl px-4 py-2">种植机</li>
+          <li class="rounded-xl px-4 py-2">切削机</li>
+          <li class="rounded-xl px-4 py-2">干湿一体机</li>
+          <li class="rounded-xl px-4 py-2">自动换盘机</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- 团队介绍-->
+  <section id="teams">
+    <div class="container mx-auto py-20">
+      <div class="section-title mb-20">
+        <h2>团队介绍</h2>
+      </div>
       <ul class="flex flex-col md:flex-row">
-        <li v-for="item in 4" class="flex-1">
+        <li v-for="item in 4" class="flex-1 mx-4">
           <div
             class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
           >
-            <div class="flex justify-end px-4 pt-4">
-              <button
-                id="dropdownButton"
-                data-dropdown-toggle="dropdown"
-                class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
-                type="button"
-              >
-                <span class="sr-only">Open dropdown</span>
-                <svg
-                  class="w-6 h-6"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"
-                  ></path>
-                </svg>
-              </button>
-              <!-- Dropdown menu -->
-              <div
-                id="dropdown"
-                class="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
-              >
-                <ul class="py-1" aria-labelledby="dropdownButton">
-                  <li>
-                    <a
-                      href="#"
-                      class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                      >Edit</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                      >Export Data</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                      >Delete</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <div class="flex justify-end px-4 pt-4"></div>
             <div class="flex flex-col items-center pb-10">
               <img
                 class="mb-3 w-24 h-24 rounded-full shadow-lg"
-                src="/docs/images/people/profile-picture-3.jpg"
+                src="http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcQJQplaMUss55rn0S_tHQH4jSdwf7eMLqPkK8TpKTfMJdLe3lqCwSHuJwHdiRbM-4S1"
                 alt="Bonnie image"
               />
               <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Bonnie Green</h5>
               <span class="text-sm text-gray-500 dark:text-gray-400">Visual Designer</span>
               <div class="flex mt-4 space-x-3 md:mt-6">
-                <a
-                  href="#"
-                  class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  >Add friend</a
-                >
                 <a
                   href="#"
                   class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
@@ -181,98 +137,82 @@
           </div>
         </li>
       </ul>
-    </section>
-    <section class="max-w-screen-xl mx-auto md:pt-[145px]">
-      <h2 class="mb-4 md:mb-[10px] caption">联系我们</h2>
-      <div class="md:grid md:grid-cols-2">
-        <div class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
-          <form>
-            <div class="form-group mb-6">
-              <input
-                id="exampleInput7"
-                type="text"
-                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                placeholder="Name"
-              />
-            </div>
-            <div class="form-group mb-6">
-              <input
-                id="exampleInput8"
-                type="email"
-                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                placeholder="Email address"
-              />
-            </div>
-            <div class="form-group mb-6">
-              <textarea
-                id="exampleFormControlTextarea13"
-                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                rows="3"
-                placeholder="Message"
-              ></textarea>
-            </div>
-            <div class="form-group form-check text-center mb-6">
-              <input
-                id="exampleCheck87"
-                type="checkbox"
-                class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
-                checked
-              />
-              <label class="form-check-label inline-block text-gray-800" for="exampleCheck87"
-                >Send me a copy of this message</label
-              >
-            </div>
-            <button
-              type="submit"
-              class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-            >
-              Send
-            </button>
-          </form>
-        </div>
-        <map-container />
+    </div>
+  </section>
+  <!-- 服务案例 -->
+  <section id="case">
+    <div class="container mx-auto py-20">
+      <div class="section-title mb-20">
+        <h2>服务案例</h2>
       </div>
-    </section>
-    <section>
-      <div class="bg-gray-50">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-          <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight">
-            <span class="block">Ready to dive in?</span>
-            <span class="block text-indigo-600">Start your free trial today.</span>
-          </h2>
-          <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-            <div class="inline-flex rounded-md shadow">
-              <a
-                href="#"
-                class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
-              >
-                Get started
-              </a>
-            </div>
-            <div class="ml-3 inline-flex rounded-md shadow">
-              <a
-                href="#"
-                class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50"
-              >
-                Learn more
-              </a>
-            </div>
+    </div>
+  </section>
+  <!-- 联系我们 -->
+  <section class="max-w-screen-xl w-[96%] mx-auto md:pt-[145px] mb-16">
+    <h2 class="mb-4 md:mb-16 caption">联系我们</h2>
+    <div class="block md:grid md:grid-cols-2">
+      <div class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
+        <form>
+          <div class="form-group mb-6">
+            <input
+              id="exampleInput7"
+              type="text"
+              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              placeholder="名字"
+            />
           </div>
-        </div>
+          <div class="form-group mb-6">
+            <input
+              id="exampleInput8"
+              type="tel"
+              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              placeholder="电话"
+            />
+          </div>
+          <div class="form-group mb-6">
+            <input
+              id="exampleInput8"
+              type="email"
+              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              placeholder="邮箱"
+            />
+          </div>
+          <div class="form-group mb-6">
+            <textarea
+              id="exampleFormControlTextarea13"
+              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              rows="3"
+              placeholder="备注信息"
+            ></textarea>
+          </div>
+          <div class="form-group form-check text-center mb-6">
+            <input
+              id="exampleCheck87"
+              type="checkbox"
+              class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
+              checked
+            />
+            <label class="form-check-label inline-block text-gray-800" for="exampleCheck87"
+              >Send me a copy of this message</label
+            >
+          </div>
+          <button
+            type="submit"
+            class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+          >
+            Send
+          </button>
+        </form>
       </div>
-    </section>
-  </div>
+      <map-container />
+    </div>
+  </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Card from '../components/Card.vue'
 import { Listbox } from '@headlessui/vue'
-import { Pagination, Navigation } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
 import MapContainer from '../components/MapContainer.vue'
 
 export default defineComponent({
@@ -281,8 +221,6 @@ export default defineComponent({
   components: {
     Listbox,
     Card,
-    Swiper,
-    SwiperSlide,
     MapContainer,
   },
   data() {
@@ -324,7 +262,7 @@ export default defineComponent({
 @import './style.scss';
 
 .swiper {
-  @include swiper-wrapper(100vh);
+  @include swiper-wrapper();
 
   ::v-deep(.swiper-slide) {
     @include swiper-slide();

@@ -4,23 +4,23 @@
 @layer base {
     :root {
         --body-color: #e4e9f7;
-        --nav-color: #3867d6;
+        --nav-color: #37517e;
         --side-nav: #54a0ff;
-        --text-color: #fff;
         --search-bar: #f2f2f2;
         --search-text: #010718;
-        --caption-color: #2E58A6;
+        --caption-color: #37517e;
     }
 
     body.dark {
         --body-color: #18191a;
         --nav-color: #242526;
         --side-nav: #242526;
-        --text-color: #ccc;
         --search-bar: #242526;
+        --text-color: #ccc;
     }
 
 }
+
 .dark-light, .searchToggle {
     @apply flex items-center justify-center my-0 mx-[5px] h-[40px] w-[40px];
 }
@@ -42,11 +42,11 @@
 }
 
 .search-field {
-    @apply absolute bottom-[-85px] right-[5px] h-[50px] w-[300px] flex items-center bg-blue-600 dark:bg-[#242526]  p-[3px] rounded-md shadow-[0_5px_5px_rgba(0,0,0,0.1)] opacity-0 z-20;
+    @apply absolute bottom-[-85px] right-[5px] h-[50px] w-[300px] flex items-center bg-sky-500 dark:bg-stone-50  p-[3px] rounded-md shadow-[0_5px_5px_rgba(0,0,0,0.1)] opacity-0 z-20;
 }
 
 .search-field::before {
-    @apply content-[''] absolute right-[14px] top-[-4px] h-[12px] w-[12px] bg-blue-600 dark:bg-[#242526] -rotate-45 z-[-1];
+    @apply content-[''] absolute right-[14px] top-[-4px] h-[12px] w-[12px] bg-sky-500 dark:bg-stone-50 -rotate-45 z-[-1];
 }
 
 .search-field input {
@@ -90,6 +90,11 @@ nav.active .menu {
 }
 
 .caption {
-    /*@apply text-caption-color text-4xl;*/
     @apply text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight text-center;
+}
+
+
+
+.section-title{
+    @apply text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight text-center text-caption-color;
 }

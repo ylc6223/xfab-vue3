@@ -1,10 +1,10 @@
 <template>
-  <nav class="w-full relative z-30 transition-all text-2xl bg-nav-color text-white" :class="{ active: sidebarState }">
-    <div class="nav-bar flex items-center justify-between max-w-screen-xl mx-auto h-[60px]">
+  <nav class="w-full fixed z-30 transition-all text-2xl bg-nav-color text-white" :class="{ active: sidebarState }">
+    <div class="nav-bar flex items-center justify-between container mx-auto h-[60px]">
       <!--   移动端开关   -->
-      <i class="sidebarTrigger block md:hidden iconfont icon-ic_side" @click="sidebarOpen"></i>
+      <i class="sidebarTrigger ml-4 block md:hidden iconfont icon-ic_side" @click="sidebarOpen"></i>
       <!--   PC下logo   -->
-      <span class="logo">
+      <span class="logo ml-4">
         <img
           v-show="!isActive"
           src="../assets/logo-white.svg"
@@ -50,7 +50,7 @@
         </ul>
       </div>
       <!--   工具栏   -->
-      <div class="toolbox flex items-center">
+      <div class="toolbox mr-4 flex items-center">
         <div class="dark-light" :class="{ active: isActive }" @click="modeToggle">
           <i class="iconfont icon-moon"></i>
           <i class="iconfont icon-sun"></i>

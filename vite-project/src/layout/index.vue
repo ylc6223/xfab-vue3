@@ -1,6 +1,6 @@
 <template>
   <head-nav class="shadow-bottom" logo="益华数字" :menus="links" />
-  <router-view class="main-container px-8 md:px-0 bg-light-gray relative z-20 top-[-60px]" />
+  <router-view class="main-container bg-light-gray relative z-20 top-[-60px] mb-[-60px]" />
   <ft />
 </template>
 
