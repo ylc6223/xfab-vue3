@@ -95,15 +95,7 @@
       <div class="section-title mb-20">
         <h2>我们的产品</h2>
       </div>
-      <div>
-        <ul class="flex mx-auto justify-center">
-          <li class="rounded-xl px-4 py-2 bg-nav-color text-white">全部</li>
-          <li class="rounded-xl px-4 py-2">种植机</li>
-          <li class="rounded-xl px-4 py-2">切削机</li>
-          <li class="rounded-xl px-4 py-2">干湿一体机</li>
-          <li class="rounded-xl px-4 py-2">自动换盘机</li>
-        </ul>
-      </div>
+      <portfoli />
     </div>
   </section>
   <!-- 团队介绍-->
@@ -212,6 +204,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Card from '../components/Card.vue'
+import Portfoli from '../components/Portfoli.vue'
 import { Listbox } from '@headlessui/vue'
 import MapContainer from '../components/MapContainer.vue'
 
@@ -222,6 +215,7 @@ export default defineComponent({
     Listbox,
     Card,
     MapContainer,
+    Portfoli,
   },
   data() {
     return {

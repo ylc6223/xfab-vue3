@@ -12,6 +12,7 @@
   "dependencies": {
     "@amap/amap-jsapi-loader": "^1.0.1",
     "@headlessui/vue": "^1.6.7",
+    "imagesloaded": "^5.0.0",
     "isotope-layout": "^3.0.6",
     "swiper": "^8.3.2",
     "vue": "^3.2.37",
