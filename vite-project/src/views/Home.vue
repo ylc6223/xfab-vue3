@@ -2,11 +2,13 @@
   <section id="hero" class="w-full py-[60px] h-[80vh] bg-nav-color">
     <div class="container pt-16 px-3 mx-auto">
       <div class="flex">
-        <div class="flex-1 flex flex-col justify-center">
+        <div data-aos="fade-up" data-aos-delay="200" class="flex-1 flex flex-col justify-center">
           <h1 class="text-5xl text-white mb-2.5">业界领先的牙科机综合服务解决方案</h1>
           <h2 class="text-2xl text-gray-400 mb-12">我们是一个拥有丰富行业经验与高质量交付能力的团队</h2>
           <div class="flex">
-            <button class="px-7 py-2.5 font-semibold text-xl bg-cyan-500 text-white rounded-full shadow-sm">
+            <button
+              class="px-7 py-2.5 font-semibold text-xl bg-cyan-500 hover:bg-blue-400 transition text-white rounded-full shadow-sm"
+            >
               开始了解
             </button>
             <a class="text-white text-xl ml-5 flex items-center" href="https://www.youtube.com/watch?v=jDDaplaOz7Q"
@@ -14,15 +16,70 @@
             >
           </div>
         </div>
-        <div class="flex-1">
-          <img src="@/assets/images/hero-img.png" class="w-4/5 mx-auto" alt="" />
+        <div data-aos="zoom-in" data-aos-delay="200" class="flex-1">
+          <img src="@/assets/images/hero-img.png" class="animated w-4/5 mx-auto" alt="" />
         </div>
       </div>
     </div>
   </section>
+
+  <section id="clients" class="py-3 bg-[#f3f5fa]">
+    <div class="container mx-auto">
+      <div class="flex justify-center" data-aos="zoom-in">
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <img
+            src="@/assets/images/clients/client-1.png"
+            class="transition iduration-[400] nline-block py-4 grayscale hover:grayscale-0 hover:scale-110 max-w-[45%]"
+            alt=""
+          />
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <img
+            src="@/assets/images/clients/client-2.png"
+            class="transition iduration-[400] nline-block py-4 grayscale hover:grayscale-0 hover:scale-110 max-w-[45%]"
+            alt=""
+          />
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <img
+            src="@/assets/images/clients/client-3.png"
+            class="transition iduration-[400] nline-block py-4 grayscale hover:grayscale-0 hover:scale-110 max-w-[45%]"
+            alt=""
+          />
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <img
+            src="@/assets/images/clients/client-4.png"
+            class="transition iduration-[400] nline-block py-4 grayscale hover:grayscale-0 hover:scale-110 max-w-[45%]"
+            alt=""
+          />
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <img
+            src="@/assets/images/clients/client-5.png"
+            class="transition iduration-[400] nline-block py-4 grayscale hover:grayscale-0 hover:scale-110 max-w-[45%]"
+            alt=""
+          />
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <img
+            src="@/assets/images/clients/client-6.png"
+            class="transition duration-[400] inline-block py-4 grayscale hover:grayscale-0 hover:scale-110 max-w-[45%]"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 关于我们 -->
   <section id="about">
-    <div class="container mx-auto py-20">
+    <div data-aos="fade-up" class="container mx-auto py-20">
       <div class="section-title mb-20">
         <h2>关于我们</h2>
       </div>
@@ -31,7 +88,7 @@
         <p>
           我们是国内领先的牙科设备综合服务商，用创新的产品和服务推动牙科事业的进步
           <br />
-          我们一直秉承科技向善的宗旨。我们的产品服务全国客户逾百家，助力牙科医疗事业的发展，畅享便捷的工作和生产。
+          我们一直秉承科技向善的宗旨。我们的产品服务全国客户逾百家，助力国内数字化口腔的发展，畅享便捷的工作和高效生产。
           <br />
           公司推出多款服务全国的牙科设备，为客户带来优秀的使用体验。
           <br />
@@ -137,11 +194,27 @@
       <div class="section-title mb-20">
         <h2>服务案例</h2>
       </div>
+      <div>
+        <ul class="grid md:grid-cols-6 gap-4">
+          <li class="w-full mb-8"><img class="w-full" src="@/assets/images/brand.png" alt="" /></li>
+          <li class="w-full mb-8"><img class="w-full" src="@/assets/images/brand.png" alt="" /></li>
+          <li class="w-full mb-8"><img class="w-full" src="@/assets/images/brand.png" alt="" /></li>
+          <li class="w-full mb-8"><img class="w-full" src="@/assets/images/brand.png" alt="" /></li>
+          <li class="w-full mb-8"><img class="w-full" src="@/assets/images/brand.png" alt="" /></li>
+          <li class="w-full mb-8"><img class="w-full" src="@/assets/images/brand.png" alt="" /></li>
+          <li class="w-full mb-8"><img class="w-full" src="@/assets/images/brand.png" alt="" /></li>
+          <li class="w-full mb-8"><img class="w-full" src="@/assets/images/brand.png" alt="" /></li>
+          <li class="w-full mb-8"><img class="w-full" src="@/assets/images/brand.png" alt="" /></li>
+          <li class="w-full mb-8"><img class="w-full" src="@/assets/images/brand.png" alt="" /></li>
+          <li class="w-full mb-8"><img class="w-full" src="@/assets/images/brand.png" alt="" /></li>
+          <li class="w-full mb-8"><img class="w-full" src="@/assets/images/brand.png" alt="" /></li>
+        </ul>
+      </div>
     </div>
   </section>
   <!-- 联系我们 -->
   <section class="max-w-screen-xl w-[96%] mx-auto md:pt-[145px] mb-16">
-    <h2 class="mb-4 md:mb-16 caption">联系我们</h2>
+    <h2 class="mb-4 md:mb-16 section-title">联系我们</h2>
     <div class="block md:grid md:grid-cols-2">
       <div class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
         <form>
@@ -207,7 +280,8 @@ import Card from '../components/Card.vue'
 import Portfoli from '../components/Portfoli.vue'
 import { Listbox } from '@headlessui/vue'
 import MapContainer from '../components/MapContainer.vue'
-
+import AOS from 'aos'
+import ScrollReveal from 'scrollreveal'
 export default defineComponent({
   title: 'Parallax',
   url: import.meta.url,
@@ -222,7 +296,7 @@ export default defineComponent({
       advantages: [
         {
           label: '丰富的行业经验',
-          text: '拥有多年的专业化积淀和方案解决经验，为包括众多国际知名企业在内，横跨通讯、电子、IT、汽车、石化、医药、金融、快速消费品等多个行业的客户，提供着全方位的财税审计与人力资源解决方案。',
+          text: '拥有多年的专业化积淀和方案解决经验，助力小微企业实现数字化。',
         },
         {
           label: '专业的服务团队',
@@ -247,6 +321,10 @@ export default defineComponent({
       ],
     }
   },
+  mounted() {
+    AOS.init()
+    // ScrollReveal().reveal('#about .container')
+  },
 })
 </script>
 
@@ -261,5 +339,28 @@ export default defineComponent({
   ::v-deep(.swiper-slide) {
     @include swiper-slide();
   }
+}
+/*顶部图片动画*/
+@-webkit-keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+#hero .animated {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
 </style>

@@ -14,7 +14,10 @@ export default defineConfig(({ command, mode }) => {
     plugins: [vue()],
     base: VITE_PUBLIC_PATH || '/',
     resolve: {
-      alias: [{ find: '@', replacement: path.resolve(__dirname, './src') }],
+      // alias: [{ find: '@', replacement: path.resolve(__dirname, './src') }],
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+      },
     },
     css: {
       preprocessorOptions: {

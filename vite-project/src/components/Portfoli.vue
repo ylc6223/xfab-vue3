@@ -1,11 +1,6 @@
 <template>
   <div class="w-full">
     <ul class="flex mx-auto justify-center mb-20 filter-btns">
-      <!--      <li data-filter="*" class="filter-btn active rounded-xl px-4 py-2 bg-nav-color text-white">全部</li>-->
-      <!--      <li data-filter=".hseries" class="filter-btn rounded-xl px-4 py-2">种植机</li>-->
-      <!--      <li data-filter=".xseries" class="filter-btn rounded-xl px-4 py-2">切削机</li>-->
-      <!--      <li data-filter=".zseries" class="filter-btn rounded-xl px-4 py-2">干湿一体机</li>-->
-      <!--      <li data-filter=".auto-series" class="filter-btn rounded-xl px-4 py-2">自动换盘机</li>-->
       <li
         v-for="(item, index) in menus"
         :key="item"
@@ -18,172 +13,24 @@
       </li>
     </ul>
     <div class="portfolio-container w-full relative">
-      <!--      <div v-for="img in 9" class="portfolio-item relative w-1/3 clear-both">
-        <div class="portfolio-img">
+      <div
+        v-for="(images, index) in imagesSource"
+        :key="images"
+        class="portfolio-item group"
+        :class="[images.deviceSeries]"
+      >
+        <div class="portfolio-img overflow-hidden">
           <img
-            :src="'/src/assets/images/portfolio/portfolio-' + img + '.jpg'"
-            class="w-full h-auto object-cover"
+            :src="'/src/assets/images/portfolio/portfolio-' + (index + 1) + '.jpg'"
+            class="w-full h-auto object-cover group-hover:scale-110 transition ease-in duration-300"
             alt=""
           />
         </div>
-            <div class="portfolio-info">
-              <h4>App 1</h4>
-              <p>App</p>
-              <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-      </div>-->
-      <div class="portfolio-item hseries relative w-1/3 clear-both">
-        <div class="portfolio-img">
-          <img src="@/assets/images/portfolio/portfolio-1.jpg" class="w-full h-auto object-cover" alt="" />
-        </div>
-        <div class="portfolio-info">
-          <h4>App 1</h4>
-          <p>App</p>
-          <a
-            href="assets/img/portfolio/portfolio-1.jpg"
-            data-gallery="portfolioGallery"
-            class="portfolio-lightbox preview-link"
-            title="App 1"
-            ><i class="bx bx-plus"></i
-          ></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-        </div>
-      </div>
-      <div class="portfolio-item hseries relative w-1/3 clear-both">
-        <div class="portfolio-img">
-          <img src="@/assets/images/portfolio/portfolio-2.jpg" class="w-full h-auto object-cover" alt="" />
-        </div>
-        <div class="portfolio-info">
-          <h4>App 1</h4>
-          <p>App</p>
-          <a
-            href="assets/img/portfolio/portfolio-1.jpg"
-            data-gallery="portfolioGallery"
-            class="portfolio-lightbox preview-link"
-            title="App 1"
-            ><i class="bx bx-plus"></i
-          ></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-        </div>
-      </div>
-      <div class="portfolio-item xseries relative w-1/3 clear-both">
-        <div class="portfolio-img">
-          <img src="@/assets/images/portfolio/portfolio-3.jpg" class="w-full h-auto object-cover" alt="" />
-        </div>
-        <div class="portfolio-info">
-          <h4>App 1</h4>
-          <p>App</p>
-          <a
-            href="assets/img/portfolio/portfolio-1.jpg"
-            data-gallery="portfolioGallery"
-            class="portfolio-lightbox preview-link"
-            title="App 1"
-            ><i class="bx bx-plus"></i
-          ></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-        </div>
-      </div>
-      <div class="portfolio-item xseries relative w-1/3 clear-both">
-        <div class="portfolio-img">
-          <img src="@/assets/images/portfolio/portfolio-4.jpg" class="w-full h-auto object-cover" alt="" />
-        </div>
-        <div class="portfolio-info">
-          <h4>App 1</h4>
-          <p>App</p>
-          <a
-            href="assets/img/portfolio/portfolio-1.jpg"
-            data-gallery="portfolioGallery"
-            class="portfolio-lightbox preview-link"
-            title="App 1"
-            ><i class="bx bx-plus"></i
-          ></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-        </div>
-      </div>
-      <div class="portfolio-item xseries relative w-1/3 clear-both">
-        <div class="portfolio-img">
-          <img src="@/assets/images/portfolio/portfolio-5.jpg" class="w-full h-auto object-cover" alt="" />
-        </div>
-        <div class="portfolio-info">
-          <h4>App 1</h4>
-          <p>App</p>
-          <a
-            href="assets/img/portfolio/portfolio-1.jpg"
-            data-gallery="portfolioGallery"
-            class="portfolio-lightbox preview-link"
-            title="App 1"
-            ><i class="bx bx-plus"></i
-          ></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-        </div>
-      </div>
-      <div class="portfolio-item zseries relative w-1/3 clear-both">
-        <div class="portfolio-img">
-          <img src="@/assets/images/portfolio/portfolio-6.jpg" class="w-full h-auto object-cover" alt="" />
-        </div>
-        <div class="portfolio-info">
-          <h4>App 1</h4>
-          <p>App</p>
-          <a
-            href="assets/img/portfolio/portfolio-1.jpg"
-            data-gallery="portfolioGallery"
-            class="portfolio-lightbox preview-link"
-            title="App 1"
-            ><i class="bx bx-plus"></i
-          ></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-        </div>
-      </div>
-      <div class="portfolio-item auto-series relative w-1/3 clear-both">
-        <div class="portfolio-img">
-          <img src="@/assets/images/portfolio/portfolio-7.jpg" class="w-full h-auto object-cover" alt="" />
-        </div>
-        <div class="portfolio-info">
-          <h4>App 1</h4>
-          <p>App</p>
-          <a
-            href="assets/img/portfolio/portfolio-1.jpg"
-            data-gallery="portfolioGallery"
-            class="portfolio-lightbox preview-link"
-            title="App 1"
-            ><i class="bx bx-plus"></i
-          ></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-        </div>
-      </div>
-      <div class="portfolio-item relative w-1/3 clear-both">
-        <div class="portfolio-img">
-          <img src="@/assets/images/portfolio/portfolio-8.jpg" class="w-full h-auto object-cover" alt="" />
-        </div>
-        <div class="portfolio-info">
-          <h4>App 1</h4>
-          <p>App</p>
-          <a
-            href="assets/img/portfolio/portfolio-1.jpg"
-            data-gallery="portfolioGallery"
-            class="portfolio-lightbox preview-link"
-            title="App 1"
-            ><i class="bx bx-plus"></i
-          ></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-        </div>
-      </div>
-      <div class="portfolio-item auto-series relative w-1/3 clear-both">
-        <div class="portfolio-img">
-          <img src="@/assets/images/portfolio/portfolio-9.jpg" class="w-full h-auto object-cover" alt="" />
-        </div>
-        <div class="portfolio-info">
-          <h4>App 1</h4>
-          <p>App</p>
-          <a
-            href="assets/img/portfolio/portfolio-1.jpg"
-            data-gallery="portfolioGallery"
-            class="portfolio-lightbox preview-link"
-            title="App 1"
-            ><i class="bx bx-plus"></i
-          ></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+        <div class="portfolio-info group-hover:opacity-100">
+          <h4 class="text-white text-lg font-semibold">{{ images.label }}</h4>
+          <p class="text-white text-sm">{{ images.text }}</p>
+          <a href="#" class="portfolio-lightbox preview-link" title="App 1"><i class="iconfont icon-plus"></i></a>
+          <a href="#" class="details-link" title="More Details"><i class="iconfont icon-link"></i></a>
         </div>
       </div>
     </div>
@@ -198,27 +45,103 @@ export default {
   name: 'Portfoli',
   data() {
     return {
+      //默认选中选项
       curIndex: 0,
+      //菜单
       menus: [
         {
           selector: '*',
           label: '全部',
         },
         {
-          selector: '.hseries',
+          selector: '.h',
           label: '种植机',
         },
         {
-          selector: '.xseries',
+          selector: '.x',
           label: '切削机',
         },
         {
-          selector: '.zseries',
+          selector: '.z',
           label: '干湿一体机',
         },
         {
-          selector: '.auto-series',
+          selector: '.auto',
           label: '自动换盘机',
+        },
+      ],
+      //图片资源
+      imagesSource: [
+        {
+          deviceSeries: 'h',
+          model: '',
+          label: '金属五轴种植机',
+          text: '金属五轴种植机',
+          url: '@/assets/images/portfolio/portfolio-1.jpg',
+          features: '',
+        },
+        {
+          deviceSeries: 'h',
+          model: '',
+          label: '金属五轴种植机',
+          text: '金属五轴种植机',
+          url: '@/assets/images/portfolio/portfolio-2.jpg',
+          features: '',
+        },
+        {
+          deviceSeries: 'x',
+          model: '',
+          label: '金属五轴种植机',
+          text: '金属五轴种植机',
+          url: '@/assets/images/portfolio/portfolio-3.jpg',
+          features: '',
+        },
+        {
+          deviceSeries: 'x',
+          model: '',
+          label: '金属五轴种植机',
+          text: '金属五轴种植机',
+          url: '@/assets/images/portfolio/portfolio-4.jpg',
+          features: '',
+        },
+        {
+          deviceSeries: 'z',
+          model: '',
+          label: '金属五轴种植机',
+          text: '金属五轴种植机',
+          url: '@/assets/images/portfolio/portfolio-5.jpg',
+          features: '',
+        },
+        {
+          deviceSeries: 'z',
+          model: '',
+          label: '金属五轴种植机',
+          text: '金属五轴种植机',
+          url: '@/assets/images/portfolio/portfolio-6.jpg',
+          features: '',
+        },
+        {
+          deviceSeries: 'h',
+          model: '',
+          label: '金属五轴种植机',
+          text: '金属五轴种植机',
+          url: '@/assets/images/portfolio/portfolio-7.jpg',
+          features: '',
+        },
+        {
+          deviceSeries: 'h',
+          model: '',
+          label: '金属五轴种植机',
+          text: '金属五轴种植机',
+          url: '@/assets/images/portfolio/portfolio-8.jpg',
+          features: '',
+        },
+        {
+          deviceSeries: 'auto',
+          label: '金属五轴种植机',
+          text: '金属五轴种植机',
+          url: '@/assets/images/portfolio/portfolio-9.jpg',
+          featuares: '',
         },
       ],
     }

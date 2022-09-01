@@ -53,15 +53,15 @@
           <li class="hidden lg:block mr-[20px]"><a href="#">法律声明</a></li>
           <li class="hidden lg:block mr-[20px]"><a href="#">阳光准则</a></li>
           <li class="hidden lg:block mr-[20px]"><a href="#">网站地图</a></li>
-          <li class="hidden md:block mr-[20px]"><a href="#">粤网文【2017】232-14232号</a></li>
-          <li class="hidden md:block mr-[20px]"><a href="#">粤公网安备 4402323232号</a></li>
+          <li class="hidden md:block mr-[20px]"><a href="#">粤网文【2017】232-11112号</a></li>
+          <li class="hidden md:block mr-[20px]"><a href="#">粤公网安备 44111112号</a></li>
         </ul>
         <p class="copyright text-[12px] md:text-base text-start mt-[12px]">
           <a href="http://beian.miit.gov.cn/" class="block md:hidden"
-            >粤网文【2017】6438-1444号<span>粤B2-2444449</span></a
+            >粤网文【2017】1234-1444号<span>粤A2-211119</span></a
           ><a class="block md:hidden" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502008569"
             >粤公网安备 44444444444号</a
-          >Copyright © 1998 - 2022 XFAB. All Rights Reserved. <br class="md:hidden" />XFAB 版权所有
+          >Copyright © 2017 - 2022 XFAB. All Rights Reserved. <br class="md:hidden" />XFAB 版权所有
         </p>
       </div>
     </div>
